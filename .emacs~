@@ -79,7 +79,7 @@
 (add-hook 'tuareg-mode-hook 'turn-on-fic-mode)
 (add-hook 'haskell-mode-hook 'turn-on-fic-mode)
 (add-hook 'coffee-mode-hook 'turn-on-fic-mode)
-(add-hook 'latex-mode-hook 'turn-on-fic-mode)
+(add-hook 'haskell-mode-hook 'turn-on-fic-mode)
 ;;coffeescript
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("[.]cunit$" . coffee-mode))
