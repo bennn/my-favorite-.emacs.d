@@ -8,6 +8,9 @@
 (column-number-mode 1)
 ;;http://emacsblog.org/2007/09/30/quick-tip-spaces-instead-of-tabs/
 (setq-default indent-tabs-mode nil)
+;;smooth scroll
+(setq scroll-conservatively 10000)
+    (setq auto-window-vscroll nil)
 ;;install python-mode
 (add-to-list 'load-path "/Users/ben/.emacs.d/python-mode.el-6.0.9") 
 (setq py-install-directory "Users/ben/.emacs.d/python-mode.el-6.0.9")

@@ -1,0 +1,2 @@
+ORGVERSION	?= 7.9.2
+GITVERSION	?= 7.9.2-74-gf9e89c-elpaplus
