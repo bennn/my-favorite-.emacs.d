@@ -13644,4 +13644,33 @@ Created by Dave Benjamin <ramen@ramenfest.com> Dec 23 2005."
      (text-cursor ((t (:background "yellow" :foreground "black"))))
      (underline ((nil (:underline nil)))))))
 
+(defun color-theme-almost-monokai ()
+  (interactive)
+  (color-theme-install
+   '(color-theme-almost-monokai
+     ((background-color . "#232323")
+      (foreground-color . "#F8F8F2")
+      (cursor-color . "#DAD085"))
+     (default ((t (nil))))
+     (modeline ((t (:background "white" :foreground "black" :box (:line-width 1 :style released-button)))))
+     (font-lock-builtin-face ((t (:foreground "#A6E22A"))))
+     (font-lock-comment-face ((t (:italic t :foreground "#75715D"))))
+     (font-lock-constant-face ((t (:foreground "#A6E22A"))))
+     (font-lock-doc-string-face ((t (:foreground "#65B042"))))
+     (font-lock-string-face ((t (:foreground "#DFD874"))))
+     (font-lock-function-name-face ((t (:foreground "#F1266F" :italic t))))
+     (font-lock-keyword-face ((t (:foreground "#66D9EF"))))
+     (font-lock-type-face ((t (:underline t :foreground "#89BDFF"))))
+     (font-lock-variable-name-face ((t (:foreground "#A6E22A"))))
+     (font-lock-warning-face ((t (:bold t :foreground "#FD5FF1"))))
+     (highlight-80+ ((t (:background "#D62E00"))))
+     (hl-line ((t (:background "#1A1A1A"))))
+     (region ((t (:background "#6DC5F1"))))
+     (ido-subdir ((t (:foreground "#F1266F"))))
+    )
+  )
+)
+(provide 'color-theme-almost-monokai)
+;---------------
+; Code end.
 ;;; color-theme-library.el ends here
