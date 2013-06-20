@@ -1,1 +1,1 @@
-sudo cp -r /Users/ben/.emacs* /Users/ben/my-favorite-.emacs.d/
+sudo cp -r /home/lambda/.emacs* /home/lambda/myemacs/my-favorite-.emacs.d/
