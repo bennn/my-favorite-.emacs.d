@@ -1,1 +1,3 @@
-sudo cp -r /home/lambda/.emacs* /home/lambda/myemacs/my-favorite-.emacs.d/
+sudo cp -r ~/.emacs.d .
+sudo cp ~/.zshrc .zshrc
+sudo cp ~/.vimrc .vimrc

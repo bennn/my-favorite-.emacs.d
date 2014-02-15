@@ -1,0 +1,951 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+LombokNode (Lombok)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="LombokNode (Lombok)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../lombok/core/LombokApp.html" title="interface in lombok.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../lombok/core/Main.html" title="class in lombok.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../index.html?lombok/core/LombokNode.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="LombokNode.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+lombok.core</FONT>
+<BR>
+Class LombokNode&lt;A extends <A HREF="../../lombok/core/AST.html" title="class in lombok.core">AST</A>&lt;A,L,N&gt;,L extends LombokNode&lt;A,L,N&gt;,N&gt;</H2>
+<PRE>
+<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
+  <IMG SRC="../../resources/inherit.gif" ALT="extended by "><B>lombok.core.LombokNode&lt;A,L,N&gt;</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></DD>
+</DL>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>, <A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public abstract class <B>LombokNode&lt;A extends <A HREF="../../lombok/core/AST.html" title="class in lombok.core">AST</A>&lt;A,L,N&gt;,L extends LombokNode&lt;A,L,N&gt;,N&gt;</B><DT>extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A><DT>implements <A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></DL>
+</PRE>
+
+<P>
+An instance of this class wraps an Eclipse/javac internal node object.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#ast">ast</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#children">children</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant">isStructurallySignificant</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;structurally significant are those nodes that can be annotated in java 1.6 or are method-like toplevels,
+ so fields, local declarations, method arguments, methods, types, the Compilation Unit itself, and initializers.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#kind">kind</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#node">node</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#parent">parent</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_lombok.core.DiagnosticsReceiver"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface lombok.core.<A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../lombok/core/DiagnosticsReceiver.html#CONSOLE">CONSOLE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#LombokNode(A, N, java.util.List, lombok.core.AST.Kind)">LombokNode</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A>&nbsp;ast,
+           <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;node,
+           <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt;&nbsp;children,
+           <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;kind)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a new Node object that represents the provided node.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#add(N, lombok.core.AST.Kind)">add</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newChild,
+    <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;newChildKind)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds the stated node as a direct child of this node.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#calculateIsStructurallySignificant(N)">calculateIsStructurallySignificant</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant"><CODE>isStructurallySignificant</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#directUp()">directUp</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the direct parent node in the AST tree of this node.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#down()">down</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns all children nodes.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected abstract &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#fieldContainsAnnotation(N, N)">fieldContainsAnnotation</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;field,
+                        <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;annotation)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if the annotation is attached to the field.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#get()">get</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getAst()">getAst</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getFileName()">getFileName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning ast object's getFileName method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getImportStatements()">getImportStatements</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning ast object's <code>getImportStatements</code> method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getKind()">getKind</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getName()">getName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the name of your type (simple name), method, field, or local variable.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getNodeFor(N)">getNodeFor</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;obj)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning ast object's get method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#getPackageDeclaration()">getPackageDeclaration</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning ast object's <code>getPackageDeclaration</code> method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant()">isStructurallySignificant</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Structurally significant means: LocalDeclaration, TypeDeclaration, MethodDeclaration, ConstructorDeclaration,
+ FieldDeclaration, Initializer, and CompilationUnitDeclaration.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#rebuild()">rebuild</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reparses the AST node represented by this node.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#removeChild(L)">removeChild</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&nbsp;child)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes the stated node, which must be a direct child of this node, from the AST.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#replaceChildNode(N, N)">replaceChildNode</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;oldN,
+                 <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newN)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replaces the stated node with a new one.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#replaceWith(N, lombok.core.AST.Kind)">replaceWith</A></B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newN,
+            <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;newNodeKind)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replaces the AST node represented by this node object with the provided node.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#top()">top</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning ast object's top method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#toString()">toString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#up()">up</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the structurally significant node that encloses this one.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/core/LombokNode.html#upFromAnnotationToFields()">upFromAnnotationToFields</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>@Foo int x, y;</code> is stored in both javac and ecj as 2 FieldDeclarations, both with the same annotation as child.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_lombok.core.DiagnosticsReceiver"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface lombok.core.<A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../lombok/core/DiagnosticsReceiver.html#addError(java.lang.String)">addError</A>, <A HREF="../../lombok/core/DiagnosticsReceiver.html#addWarning(java.lang.String)">addWarning</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ast"><!-- --></A><H3>
+ast</H3>
+<PRE>
+protected final <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A> extends <A HREF="../../lombok/core/AST.html" title="class in lombok.core">AST</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&gt; <B>ast</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="kind"><!-- --></A><H3>
+kind</H3>
+<PRE>
+protected final <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A> <B>kind</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="node"><!-- --></A><H3>
+node</H3>
+<PRE>
+protected final <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A> <B>node</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="children"><!-- --></A><H3>
+children</H3>
+<PRE>
+protected final <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> extends <A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&gt;&gt; <B>children</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="parent"><!-- --></A><H3>
+parent</H3>
+<PRE>
+protected <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> extends <A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>,<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&gt; <B>parent</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="isStructurallySignificant"><!-- --></A><H3>
+isStructurallySignificant</H3>
+<PRE>
+protected boolean <B>isStructurallySignificant</B></PRE>
+<DL>
+<DD>structurally significant are those nodes that can be annotated in java 1.6 or are method-like toplevels,
+ so fields, local declarations, method arguments, methods, types, the Compilation Unit itself, and initializers.
+<P>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="LombokNode(lombok.core.AST,java.lang.Object,java.util.List,lombok.core.AST.Kind)"><!-- --></A><A NAME="LombokNode(A, N, java.util.List, lombok.core.AST.Kind)"><!-- --></A><H3>
+LombokNode</H3>
+<PRE>
+protected <B>LombokNode</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A>&nbsp;ast,
+                     <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;node,
+                     <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt;&nbsp;children,
+                     <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;kind)</PRE>
+<DL>
+<DD>Creates a new Node object that represents the provided node.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>ast</CODE> - The owning AST - this node is part of this AST's tree of nodes.<DD><CODE>node</CODE> - The AST object in the target parser's own internal AST tree that this node object will represent.<DD><CODE>children</CODE> - A list of child nodes. Passing in null results in the children list being empty, not null.<DD><CODE>kind</CODE> - The kind of node represented by this object.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getAst()"><!-- --></A><H3>
+getAst</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">A</A> <B>getAst</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toString()"><!-- --></A><H3>
+toString</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>toString</B>()</PRE>
+<DL>
+<DD>
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()" title="class or interface in java.lang">toString</A></CODE> in class <CODE><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPackageDeclaration()"><!-- --></A><H3>
+getPackageDeclaration</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getPackageDeclaration</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning ast object's <code>getPackageDeclaration</code> method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/AST.html#getPackageDeclaration()"><CODE>AST.getPackageDeclaration()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getImportStatements()"><!-- --></A><H3>
+getImportStatements</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&gt; <B>getImportStatements</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning ast object's <code>getImportStatements</code> method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/AST.html#getImportStatements()"><CODE>AST.getImportStatements()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="calculateIsStructurallySignificant(java.lang.Object)"><!-- --></A><A NAME="calculateIsStructurallySignificant(N)"><!-- --></A><H3>
+calculateIsStructurallySignificant</H3>
+<PRE>
+protected abstract boolean <B>calculateIsStructurallySignificant</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;parent)</PRE>
+<DL>
+<DD>See <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant"><CODE>isStructurallySignificant</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNodeFor(java.lang.Object)"><!-- --></A><A NAME="getNodeFor(N)"><!-- --></A><H3>
+getNodeFor</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>getNodeFor</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;obj)</PRE>
+<DL>
+<DD>Convenient shortcut to the owning ast object's get method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/AST.html#get(N)"><CODE>AST.get(Object)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get()"><!-- --></A><H3>
+get</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A> <B>get</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The javac/Eclipse internal AST object wrapped by this LombokNode object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="replaceWith(java.lang.Object,lombok.core.AST.Kind)"><!-- --></A><A NAME="replaceWith(N, lombok.core.AST.Kind)"><!-- --></A><H3>
+replaceWith</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>replaceWith</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newN,
+                     <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;newNodeKind)</PRE>
+<DL>
+<DD>Replaces the AST node represented by this node object with the provided node. This node must
+ have a parent, obviously, for this to work.
+ 
+ Also affects the underlying (Eclipse/javac) AST.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="replaceChildNode(java.lang.Object,java.lang.Object)"><!-- --></A><A NAME="replaceChildNode(N, N)"><!-- --></A><H3>
+replaceChildNode</H3>
+<PRE>
+public void <B>replaceChildNode</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;oldN,
+                             <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newN)</PRE>
+<DL>
+<DD>Replaces the stated node with a new one. The old node must be a direct child of this node.
+ 
+ Also affects the underlying (Eclipse/javac) AST.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getKind()"><!-- --></A><H3>
+getKind</H3>
+<PRE>
+public <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A> <B>getKind</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName()"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public abstract <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getName</B>()</PRE>
+<DL>
+<DD>Return the name of your type (simple name), method, field, or local variable. Return null if this
+ node doesn't really have a name, such as initializers, while statements, etc.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="up()"><!-- --></A><H3>
+up</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>up</B>()</PRE>
+<DL>
+<DD>Returns the structurally significant node that encloses this one.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant()"><CODE>isStructurallySignificant()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="upFromAnnotationToFields()"><!-- --></A><H3>
+upFromAnnotationToFields</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt; <B>upFromAnnotationToFields</B>()</PRE>
+<DL>
+<DD><code>@Foo int x, y;</code> is stored in both javac and ecj as 2 FieldDeclarations, both with the same annotation as child.
+ The normal <code>up()</code> method can't handle having multiple parents, but this one can.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fieldContainsAnnotation(java.lang.Object,java.lang.Object)"><!-- --></A><A NAME="fieldContainsAnnotation(N, N)"><!-- --></A><H3>
+fieldContainsAnnotation</H3>
+<PRE>
+protected abstract boolean <B>fieldContainsAnnotation</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;field,
+                                                   <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;annotation)</PRE>
+<DL>
+<DD>Return <code>true</code> if the annotation is attached to the field.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="directUp()"><!-- --></A><H3>
+directUp</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>directUp</B>()</PRE>
+<DL>
+<DD>Returns the direct parent node in the AST tree of this node. For example, a local variable declaration's
+ direct parent can be e.g. an If block, but its <code>up()</code> <code>LombokNode</code> is the <code>Method</code> that contains it.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="down()"><!-- --></A><H3>
+down</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</A>&lt;<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&gt; <B>down</B>()</PRE>
+<DL>
+<DD>Returns all children nodes.
+ 
+ A copy is created, so changing the list has no effect. Also, while iterating through this list,
+ you may add, remove, or replace children without causing <code>ConcurrentModificationException</code>s.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="top()"><!-- --></A><H3>
+top</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>top</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning ast object's top method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/AST.html#top()"><CODE>AST.top()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFileName()"><!-- --></A><H3>
+getFileName</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getFileName</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning ast object's getFileName method.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/core/AST.html#getFileName()"><CODE>AST.getFileName()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="add(java.lang.Object,lombok.core.AST.Kind)"><!-- --></A><A NAME="add(N, lombok.core.AST.Kind)"><!-- --></A><H3>
+add</H3>
+<PRE>
+public <A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A> <B>add</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">N</A>&nbsp;newChild,
+             <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;newChildKind)</PRE>
+<DL>
+<DD>Adds the stated node as a direct child of this node.
+ 
+ Does not change the underlying (javac/Eclipse) AST, only the wrapped view.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="rebuild()"><!-- --></A><H3>
+rebuild</H3>
+<PRE>
+public void <B>rebuild</B>()</PRE>
+<DL>
+<DD>Reparses the AST node represented by this node. Any existing nodes that occupy a different space in the AST are rehomed, any
+ nodes that no longer exist are removed, and new nodes are created.
+ 
+ Careful - the node you call this on must not itself have been removed or rehomed - it rebuilds <i>all children</i>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="removeChild(lombok.core.LombokNode)"><!-- --></A><A NAME="removeChild(L)"><!-- --></A><H3>
+removeChild</H3>
+<PRE>
+public void <B>removeChild</B>(<A HREF="../../lombok/core/LombokNode.html" title="type parameter in LombokNode">L</A>&nbsp;child)</PRE>
+<DL>
+<DD>Removes the stated node, which must be a direct child of this node, from the AST.
+ 
+ Does not change the underlying (javac/Eclipse) AST, only the wrapped view.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isStructurallySignificant()"><!-- --></A><H3>
+isStructurallySignificant</H3>
+<PRE>
+public boolean <B>isStructurallySignificant</B>()</PRE>
+<DL>
+<DD>Structurally significant means: LocalDeclaration, TypeDeclaration, MethodDeclaration, ConstructorDeclaration,
+ FieldDeclaration, Initializer, and CompilationUnitDeclaration.
+ The rest is e.g. if statements, while loops, etc.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../lombok/core/LombokApp.html" title="interface in lombok.core"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../lombok/core/Main.html" title="class in lombok.core"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../index.html?lombok/core/LombokNode.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="LombokNode.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+<i>Copyright &copy; 2009-2010 The Project Lombok Authors, licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT licence</a>.
+</BODY>
+</HTML>

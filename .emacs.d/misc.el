@@ -12,6 +12,13 @@
         (system-time-locale "C"))
     (insert (format-time-string format))))
 
+(defun insert-signature (prefix)
+  "Insert my signature."
+  (interactive "P")
+  (let ((format "%Y-%m-%d (B): ")
+        (system-time-locale "C"))
+    (insert (format-time-string format))))
+
 (defun match-paren (arg)
   "Go to the matching paren if on a paren; otherwise insert %."
   (interactive "p")

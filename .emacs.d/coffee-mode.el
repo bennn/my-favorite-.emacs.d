@@ -73,7 +73,7 @@
   "A CoffeeScript major mode."
   :group 'languages)
 
-(defcustom coffee-tab-width tab-width
+(defcustom coffee-tab-width 4
   "The tab width to use when indenting."
   :type 'integer
   :group 'coffee)

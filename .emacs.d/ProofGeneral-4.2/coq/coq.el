@@ -62,7 +62,7 @@
 ;; End debugging
 
 (defcustom coq-prog-name
-  (proof-locate-executable "coqtop" t '("C:/Program Files/Coq/bin"))
+  (proof-locate-executable "coqtop" t '("/usr/local/lib/coq"))
    "*Name of program to run as Coq. See `proof-prog-name', set from this.
 On Windows with latest Coq package you might need something like:
    C:/Program Files/Coq/bin/coqtop.opt.exe

@@ -1,0 +1,1 @@
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("com.nullprogram.guide.Arch" ("com/nullprogram/guide/Arch.html" . #1=("/Users/ben/.emacs.d/javadoc-cache/com.nullprogram/native-guide/" "file://")) "com.nullprogram.guide.NativeGuide" ("com/nullprogram/guide/NativeGuide.html" . #1#)))

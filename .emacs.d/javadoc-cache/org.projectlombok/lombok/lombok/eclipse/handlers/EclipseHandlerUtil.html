@@ -1,0 +1,960 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+EclipseHandlerUtil (Lombok)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="EclipseHandlerUtil (Lombok)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?lombok/eclipse/handlers/EclipseHandlerUtil.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="EclipseHandlerUtil.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+lombok.eclipse.handlers</FONT>
+<BR>
+Class EclipseHandlerUtil</H2>
+<PRE>
+<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
+  <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>lombok.eclipse.handlers.EclipseHandlerUtil</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>EclipseHandlerUtil</B><DT>extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></DL>
+</PRE>
+
+<P>
+Container for static utility methods useful to handlers written for eclipse.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serves as return value for the methods that check for the existence of fields and methods.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#annotationTypeMatches(java.lang.Class, lombok.eclipse.EclipseNode)">annotationTypeMatches</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;? extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</A>&gt;&nbsp;type,
+                      <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if the provided annotation type is likely to be the intended type for the given annotation node.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#constructorExists(lombok.eclipse.EclipseNode)">constructorExists</A></B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if there is a (non-default) constructor.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.Annotation</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyAnnotation(org.eclipse.jdt.internal.compiler.ast.Annotation, org.eclipse.jdt.internal.compiler.ast.ASTNode)">copyAnnotation</A></B>(org.eclipse.jdt.internal.compiler.ast.Annotation&nbsp;annotation,
+               org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.Annotation[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyAnnotations(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.Annotation[]...)">copyAnnotations</A></B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source,
+                org.eclipse.jdt.internal.compiler.ast.Annotation[]...&nbsp;allAnnotations)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.TypeReference</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyType(org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)">copyType</A></B>(org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;ref,
+         org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can't share TypeReference objects or subtle errors start happening.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.TypeParameter[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyTypeParams(org.eclipse.jdt.internal.compiler.ast.TypeParameter[], org.eclipse.jdt.internal.compiler.ast.ASTNode)">copyTypeParams</A></B>(org.eclipse.jdt.internal.compiler.ast.TypeParameter[]&nbsp;params,
+               org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can't share TypeParameter objects or bad things happen; for example, one 'T' resolves differently
+ from another 'T', even for the same T in a single class file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.TypeReference[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyTypes(org.eclipse.jdt.internal.compiler.ast.TypeReference[], org.eclipse.jdt.internal.compiler.ast.ASTNode)">copyTypes</A></B>(org.eclipse.jdt.internal.compiler.ast.TypeReference[]&nbsp;refs,
+          org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenience method that creates a new array and copies each TypeReference in the source array via
+ <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyType(org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><CODE>copyType(TypeReference, ASTNode)</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;A extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</A>&gt; 
+<BR>
+<A HREF="../../../lombok/core/AnnotationValues.html" title="class in lombok.core">AnnotationValues</A>&lt;A&gt;</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#createAnnotation(java.lang.Class, lombok.eclipse.EclipseNode)">createAnnotation</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;A&gt;&nbsp;type,
+                 <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;annotationNode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Provides AnnotationValues with the data it needs to do its thing.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#createListOfNonExistentFields(java.util.List, lombok.eclipse.EclipseNode, boolean, boolean)">createListOfNonExistentFields</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&gt;&nbsp;list,
+                              <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                              boolean&nbsp;excludeStandard,
+                              boolean&nbsp;excludeTransient)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given a list of field names and a node referring to a type, finds each name in the list that does not match a field within the type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.Annotation[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#createSuppressWarningsAll(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.Annotation[])">createSuppressWarningsAll</A></B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source,
+                          org.eclipse.jdt.internal.compiler.ast.Annotation[]&nbsp;originalAnnotationArray)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#error(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration, java.lang.String, java.lang.String, java.lang.Throwable)">error</A></B>(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration&nbsp;cud,
+      <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+      <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;bundleName,
+      <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates an error in the Eclipse error log.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#error(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration, java.lang.String, java.lang.Throwable)">error</A></B>(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration&nbsp;cud,
+      <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+      <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates an error in the Eclipse error log.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#fieldExists(java.lang.String, lombok.eclipse.EclipseNode)">fieldExists</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fieldName,
+            <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if there is a field with the provided name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#filterField(org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)">filterField</A></B>(org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;declaration)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if the field should be included in operations that work on 'all' fields:
+    If the field is static, or starts with a '$', or is actually an enum constant, 'false' is returned, indicating you should skip it.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.Statement</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#generateNullCheck(org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration, org.eclipse.jdt.internal.compiler.ast.ASTNode)">generateNullCheck</A></B>(org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration&nbsp;variable,
+                  org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates a new statement that checks if the given variable is null, and if so, throws a <code>NullPointerException</code> with the
+ variable name as message.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.ASTNode</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#getGeneratedBy(org.eclipse.jdt.internal.compiler.ast.ASTNode)">getGeneratedBy</A></B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#injectField(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)">injectField</A></B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+            org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;field)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inserts a field into an existing type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#injectFieldSuppressWarnings(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)">injectFieldSuppressWarnings</A></B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                            org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;field)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inserts a field into an existing type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#injectMethod(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration)">injectMethod</A></B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+             org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration&nbsp;method)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inserts a method into an existing type.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#isGenerated(org.eclipse.jdt.internal.compiler.ast.ASTNode)">isGenerated</A></B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.CastExpression</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#makeCastExpression(org.eclipse.jdt.internal.compiler.ast.Expression, org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)">makeCastExpression</A></B>(org.eclipse.jdt.internal.compiler.ast.Expression&nbsp;ref,
+                   org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;castTo,
+                   org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In eclipse 3.7+, the CastExpression constructor was changed from a really weird version to
+ a less weird one.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.IntLiteral</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#makeIntLiteral(char[], org.eclipse.jdt.internal.compiler.ast.ASTNode)">makeIntLiteral</A></B>(char[]&nbsp;token,
+               org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In eclipse 3.7+, IntLiterals are created using a factory-method 
+ Unfortunately that means we need to use reflection as we want to be compatible
+ with eclipse versions before 3.7.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.MarkerAnnotation</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#makeMarkerAnnotation(char[][], org.eclipse.jdt.internal.compiler.ast.ASTNode)">makeMarkerAnnotation</A></B>(char[][]&nbsp;name,
+                     org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an annotation of the given name, and is marked as being generated by the given source.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.TypeReference</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#makeType(org.eclipse.jdt.internal.compiler.lookup.TypeBinding, org.eclipse.jdt.internal.compiler.ast.ASTNode, boolean)">makeType</A></B>(org.eclipse.jdt.internal.compiler.lookup.TypeBinding&nbsp;binding,
+         org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;pos,
+         boolean&nbsp;allowCompound)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#methodExists(java.lang.String, lombok.eclipse.EclipseNode)">methodExists</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;methodName,
+             <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wrapper for <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#methodExists(java.lang.String, lombok.eclipse.EclipseNode, boolean)"><CODE>methodExists(String, EclipseNode, boolean)</CODE></A> with <code>caseSensitive</code> = <code>true</code>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#methodExists(java.lang.String, lombok.eclipse.EclipseNode, boolean)">methodExists</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;methodName,
+             <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node,
+             boolean&nbsp;caseSensitive)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if there is a method with the provided name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;org.eclipse.jdt.internal.compiler.ast.ASTNode</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#setGeneratedBy(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.ASTNode)">setGeneratedBy</A></B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node,
+               org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#toEclipseModifier(lombok.AccessLevel)">toEclipseModifier</A></B>(<A HREF="../../../lombok/AccessLevel.html" title="enum in lombok">AccessLevel</A>&nbsp;value)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turns an <code>AccessLevel</code> instance into the flag bit used by eclipse.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#typeMatches(java.lang.Class, lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.TypeReference)">typeMatches</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;?&gt;&nbsp;type,
+            <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node,
+            org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;typeRef)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if the given TypeReference node is likely to be a reference to the provided class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#warning(java.lang.String, java.lang.String, java.lang.Throwable)">warning</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+        <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;bundleName,
+        <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates a warning in the Eclipse error log.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#warning(java.lang.String, java.lang.Throwable)">warning</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+        <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates a warning in the Eclipse error log.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#toString()" title="class or interface in java.lang">toString</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="error(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration, java.lang.String, java.lang.Throwable)"><!-- --></A><H3>
+error</H3>
+<PRE>
+public static void <B>error</B>(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration&nbsp;cud,
+                         <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                         <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</PRE>
+<DL>
+<DD>Generates an error in the Eclipse error log. Note that most people never look at it!
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cud</CODE> - The <code>CompilationUnitDeclaration</code> where the error occurred.
+     An error will be generated on line 0 linking to the error log entry. Can be <code>null</code>.<DD><CODE>message</CODE> - Human readable description of the problem.<DD><CODE>error</CODE> - The associated exception. Can be <code>null</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="error(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration, java.lang.String, java.lang.String, java.lang.Throwable)"><!-- --></A><H3>
+error</H3>
+<PRE>
+public static void <B>error</B>(org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration&nbsp;cud,
+                         <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                         <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;bundleName,
+                         <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</PRE>
+<DL>
+<DD>Generates an error in the Eclipse error log. Note that most people never look at it!
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>cud</CODE> - The <code>CompilationUnitDeclaration</code> where the error occurred.
+     An error will be generated on line 0 linking to the error log entry. Can be <code>null</code>.<DD><CODE>message</CODE> - Human readable description of the problem.<DD><CODE>bundleName</CODE> - Can be <code>null</code> to default to <code>org.eclipse.jdt.core</code> which is usually right.<DD><CODE>error</CODE> - The associated exception. Can be <code>null</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="warning(java.lang.String, java.lang.Throwable)"><!-- --></A><H3>
+warning</H3>
+<PRE>
+public static void <B>warning</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                           <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</PRE>
+<DL>
+<DD>Generates a warning in the Eclipse error log. Note that most people never look at it!
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>message</CODE> - Human readable description of the problem.<DD><CODE>error</CODE> - The associated exception. Can be <code>null</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="warning(java.lang.String, java.lang.String, java.lang.Throwable)"><!-- --></A><H3>
+warning</H3>
+<PRE>
+public static void <B>warning</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                           <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;bundleName,
+                           <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</A>&nbsp;error)</PRE>
+<DL>
+<DD>Generates a warning in the Eclipse error log. Note that most people never look at it!
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>message</CODE> - Human readable description of the problem.<DD><CODE>bundleName</CODE> - Can be <code>null</code> to default to <code>org.eclipse.jdt.core</code> which is usually right.<DD><CODE>error</CODE> - The associated exception. Can be <code>null</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getGeneratedBy(org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+getGeneratedBy</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.ASTNode <B>getGeneratedBy</B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isGenerated(org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+isGenerated</H3>
+<PRE>
+public static boolean <B>isGenerated</B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setGeneratedBy(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+setGeneratedBy</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.ASTNode <B>setGeneratedBy</B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;node,
+                                                                           org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="typeMatches(java.lang.Class, lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.TypeReference)"><!-- --></A><H3>
+typeMatches</H3>
+<PRE>
+public static boolean <B>typeMatches</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;?&gt;&nbsp;type,
+                                  <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node,
+                                  org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;typeRef)</PRE>
+<DL>
+<DD>Checks if the given TypeReference node is likely to be a reference to the provided class.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>type</CODE> - An actual type. This method checks if <code>typeNode</code> is likely to be a reference to this type.<DD><CODE>node</CODE> - A Lombok AST node. Any node in the appropriate compilation unit will do (used to get access to import statements).<DD><CODE>typeRef</CODE> - A type reference to check.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyAnnotation(org.eclipse.jdt.internal.compiler.ast.Annotation, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+copyAnnotation</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.Annotation <B>copyAnnotation</B>(org.eclipse.jdt.internal.compiler.ast.Annotation&nbsp;annotation,
+                                                                              org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyTypeParams(org.eclipse.jdt.internal.compiler.ast.TypeParameter[], org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+copyTypeParams</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.TypeParameter[] <B>copyTypeParams</B>(org.eclipse.jdt.internal.compiler.ast.TypeParameter[]&nbsp;params,
+                                                                                   org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>You can't share TypeParameter objects or bad things happen; for example, one 'T' resolves differently
+ from another 'T', even for the same T in a single class file. Unfortunately the TypeParameter type hierarchy
+ is complicated and there's no clone method on TypeParameter itself. This method can clone them.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyTypes(org.eclipse.jdt.internal.compiler.ast.TypeReference[], org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+copyTypes</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.TypeReference[] <B>copyTypes</B>(org.eclipse.jdt.internal.compiler.ast.TypeReference[]&nbsp;refs,
+                                                                              org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>Convenience method that creates a new array and copies each TypeReference in the source array via
+ <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#copyType(org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><CODE>copyType(TypeReference, ASTNode)</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyType(org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+copyType</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.TypeReference <B>copyType</B>(org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;ref,
+                                                                           org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>You can't share TypeReference objects or subtle errors start happening.
+ Unfortunately the TypeReference type hierarchy is complicated and there's no clone
+ method on TypeReference itself. This method can clone them.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="copyAnnotations(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.Annotation[]...)"><!-- --></A><H3>
+copyAnnotations</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.Annotation[] <B>copyAnnotations</B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source,
+                                                                                 org.eclipse.jdt.internal.compiler.ast.Annotation[]...&nbsp;allAnnotations)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="annotationTypeMatches(java.lang.Class, lombok.eclipse.EclipseNode)"><!-- --></A><H3>
+annotationTypeMatches</H3>
+<PRE>
+public static boolean <B>annotationTypeMatches</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;? extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</A>&gt;&nbsp;type,
+                                            <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</PRE>
+<DL>
+<DD>Checks if the provided annotation type is likely to be the intended type for the given annotation node.
+ 
+ This is a guess, but a decent one.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="makeType(org.eclipse.jdt.internal.compiler.lookup.TypeBinding, org.eclipse.jdt.internal.compiler.ast.ASTNode, boolean)"><!-- --></A><H3>
+makeType</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.TypeReference <B>makeType</B>(org.eclipse.jdt.internal.compiler.lookup.TypeBinding&nbsp;binding,
+                                                                           org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;pos,
+                                                                           boolean&nbsp;allowCompound)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createAnnotation(java.lang.Class, lombok.eclipse.EclipseNode)"><!-- --></A><H3>
+createAnnotation</H3>
+<PRE>
+public static &lt;A extends <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</A>&gt; <A HREF="../../../lombok/core/AnnotationValues.html" title="class in lombok.core">AnnotationValues</A>&lt;A&gt; <B>createAnnotation</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</A>&lt;A&gt;&nbsp;type,
+                                                                          <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;annotationNode)</PRE>
+<DL>
+<DD>Provides AnnotationValues with the data it needs to do its thing.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toEclipseModifier(lombok.AccessLevel)"><!-- --></A><H3>
+toEclipseModifier</H3>
+<PRE>
+public static int <B>toEclipseModifier</B>(<A HREF="../../../lombok/AccessLevel.html" title="enum in lombok">AccessLevel</A>&nbsp;value)</PRE>
+<DL>
+<DD>Turns an <code>AccessLevel</code> instance into the flag bit used by eclipse.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="filterField(org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)"><!-- --></A><H3>
+filterField</H3>
+<PRE>
+public static boolean <B>filterField</B>(org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;declaration)</PRE>
+<DL>
+<DD>Checks if the field should be included in operations that work on 'all' fields:
+    If the field is static, or starts with a '$', or is actually an enum constant, 'false' is returned, indicating you should skip it.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fieldExists(java.lang.String, lombok.eclipse.EclipseNode)"><!-- --></A><H3>
+fieldExists</H3>
+<PRE>
+public static <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A> <B>fieldExists</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;fieldName,
+                                                                <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</PRE>
+<DL>
+<DD>Checks if there is a field with the provided name.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>fieldName</CODE> - the field name to check for.<DD><CODE>node</CODE> - Any node that represents the Type (TypeDeclaration) to look in, or any child node thereof.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="methodExists(java.lang.String, lombok.eclipse.EclipseNode)"><!-- --></A><H3>
+methodExists</H3>
+<PRE>
+public static <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A> <B>methodExists</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;methodName,
+                                                                 <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</PRE>
+<DL>
+<DD>Wrapper for <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.html#methodExists(java.lang.String, lombok.eclipse.EclipseNode, boolean)"><CODE>methodExists(String, EclipseNode, boolean)</CODE></A> with <code>caseSensitive</code> = <code>true</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="methodExists(java.lang.String, lombok.eclipse.EclipseNode, boolean)"><!-- --></A><H3>
+methodExists</H3>
+<PRE>
+public static <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A> <B>methodExists</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;methodName,
+                                                                 <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node,
+                                                                 boolean&nbsp;caseSensitive)</PRE>
+<DL>
+<DD>Checks if there is a method with the provided name. In case of multiple methods (overloading), only
+ the first method decides if EXISTS_BY_USER or EXISTS_BY_LOMBOK is returned.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>methodName</CODE> - the method name to check for.<DD><CODE>node</CODE> - Any node that represents the Type (TypeDeclaration) to look in, or any child node thereof.<DD><CODE>caseSensitive</CODE> - If the search should be case sensitive.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="constructorExists(lombok.eclipse.EclipseNode)"><!-- --></A><H3>
+constructorExists</H3>
+<PRE>
+public static <A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers">EclipseHandlerUtil.MemberExistsResult</A> <B>constructorExists</B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;node)</PRE>
+<DL>
+<DD>Checks if there is a (non-default) constructor. In case of multiple constructors (overloading), only
+ the first constructor decides if EXISTS_BY_USER or EXISTS_BY_LOMBOK is returned.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>node</CODE> - Any node that represents the Type (TypeDeclaration) to look in, or any child node thereof.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="injectFieldSuppressWarnings(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)"><!-- --></A><H3>
+injectFieldSuppressWarnings</H3>
+<PRE>
+public static void <B>injectFieldSuppressWarnings</B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                                               org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;field)</PRE>
+<DL>
+<DD>Inserts a field into an existing type. The type must represent a <code>TypeDeclaration</code>.
+ The field carries the &#64;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/SuppressWarnings.html?is-external=true" title="class or interface in java.lang"><CODE>SuppressWarnings</CODE></A>("all") annotation.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="injectField(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.FieldDeclaration)"><!-- --></A><H3>
+injectField</H3>
+<PRE>
+public static void <B>injectField</B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                               org.eclipse.jdt.internal.compiler.ast.FieldDeclaration&nbsp;field)</PRE>
+<DL>
+<DD>Inserts a field into an existing type. The type must represent a <code>TypeDeclaration</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="injectMethod(lombok.eclipse.EclipseNode, org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration)"><!-- --></A><H3>
+injectMethod</H3>
+<PRE>
+public static void <B>injectMethod</B>(<A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                                org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration&nbsp;method)</PRE>
+<DL>
+<DD>Inserts a method into an existing type. The type must represent a <code>TypeDeclaration</code>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createSuppressWarningsAll(org.eclipse.jdt.internal.compiler.ast.ASTNode, org.eclipse.jdt.internal.compiler.ast.Annotation[])"><!-- --></A><H3>
+createSuppressWarningsAll</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.Annotation[] <B>createSuppressWarningsAll</B>(org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source,
+                                                                                           org.eclipse.jdt.internal.compiler.ast.Annotation[]&nbsp;originalAnnotationArray)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="generateNullCheck(org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+generateNullCheck</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.Statement <B>generateNullCheck</B>(org.eclipse.jdt.internal.compiler.ast.AbstractVariableDeclaration&nbsp;variable,
+                                                                                org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>Generates a new statement that checks if the given variable is null, and if so, throws a <code>NullPointerException</code> with the
+ variable name as message.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="makeMarkerAnnotation(char[][], org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+makeMarkerAnnotation</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.MarkerAnnotation <B>makeMarkerAnnotation</B>(char[][]&nbsp;name,
+                                                                                          org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>Create an annotation of the given name, and is marked as being generated by the given source.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createListOfNonExistentFields(java.util.List, lombok.eclipse.EclipseNode, boolean, boolean)"><!-- --></A><H3>
+createListOfNonExistentFields</H3>
+<PRE>
+public static <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</A>&gt; <B>createListOfNonExistentFields</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&gt;&nbsp;list,
+                                                          <A HREF="../../../lombok/eclipse/EclipseNode.html" title="class in lombok.eclipse">EclipseNode</A>&nbsp;type,
+                                                          boolean&nbsp;excludeStandard,
+                                                          boolean&nbsp;excludeTransient)</PRE>
+<DL>
+<DD>Given a list of field names and a node referring to a type, finds each name in the list that does not match a field within the type.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="makeCastExpression(org.eclipse.jdt.internal.compiler.ast.Expression, org.eclipse.jdt.internal.compiler.ast.TypeReference, org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+makeCastExpression</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.CastExpression <B>makeCastExpression</B>(org.eclipse.jdt.internal.compiler.ast.Expression&nbsp;ref,
+                                                                                      org.eclipse.jdt.internal.compiler.ast.TypeReference&nbsp;castTo,
+                                                                                      org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>In eclipse 3.7+, the CastExpression constructor was changed from a really weird version to
+ a less weird one. Unfortunately that means we need to use reflection as we want to be compatible
+ with eclipse versions before 3.7 and 3.7+.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>ref</CODE> - The <code>foo</code> in <code>(String)foo</code>.<DD><CODE>castTo</CODE> - The <code>String</code> in <code>(String)foo</code>.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="makeIntLiteral(char[], org.eclipse.jdt.internal.compiler.ast.ASTNode)"><!-- --></A><H3>
+makeIntLiteral</H3>
+<PRE>
+public static org.eclipse.jdt.internal.compiler.ast.IntLiteral <B>makeIntLiteral</B>(char[]&nbsp;token,
+                                                                              org.eclipse.jdt.internal.compiler.ast.ASTNode&nbsp;source)</PRE>
+<DL>
+<DD>In eclipse 3.7+, IntLiterals are created using a factory-method 
+ Unfortunately that means we need to use reflection as we want to be compatible
+ with eclipse versions before 3.7.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../lombok/eclipse/handlers/EclipseHandlerUtil.MemberExistsResult.html" title="enum in lombok.eclipse.handlers"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../index.html?lombok/eclipse/handlers/EclipseHandlerUtil.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="EclipseHandlerUtil.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+<i>Copyright &copy; 2009-2010 The Project Lombok Authors, licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT licence</a>.
+</BODY>
+</HTML>

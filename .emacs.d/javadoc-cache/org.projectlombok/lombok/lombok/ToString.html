@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+ToString (Lombok)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ToString (Lombok)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../lombok/Synchronized.html" title="annotation in lombok"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../lombok/val.html" title="annotation in lombok"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../index.html?lombok/ToString.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ToString.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;REQUIRED&nbsp;|&nbsp;<A HREF="#annotation_type_optional_element_summary">OPTIONAL</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#annotation_type_element_detail">ELEMENT</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+lombok</FONT>
+<BR>
+Annotation Type ToString</H2>
+<HR>
+<DL>
+<DT><PRE><FONT SIZE="-1"><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</A>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Target.html#value()" title="class or interface in java.lang.annotation">value</A>=<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/ElementType.html#TYPE" title="class or interface in java.lang.annotation">TYPE</A>)
+<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</A>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/Retention.html#value()" title="class or interface in java.lang.annotation">value</A>=<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/annotation/RetentionPolicy.html#SOURCE" title="class or interface in java.lang.annotation">SOURCE</A>)
+</FONT>public @interface <B>ToString</B></DL>
+</PRE>
+
+<P>
+Generates an implementation for the <code>toString</code> method inherited by all objects.
+ <p>
+ If the method already exists, then <code>ToString</code> will not generate any method, and instead warns
+ that it's doing nothing at all. The parameter list and return type are not relevant when deciding to skip generation of
+ the method; any method named <code>toString</code> will make <code>ToString</code> not generate anything.
+ <p>
+ By default, all fields that are non-static are used in the toString generation. You can exclude fields by specifying them
+ in the <code>exclude</code> parameter. You can also explicitly specify the fields that
+ are to be used by specifying them in the <code>of</code> parameter.
+ <p>
+ Array fields are handled by way of <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/Arrays.html#deepToString(java.lang.Object[])" title="class or interface in java.util"><CODE>Arrays.deepToString(Object[])</CODE></A> where necessary.
+ The downside is that arrays with circular references (arrays that contain themselves,
+ possibly indirectly) results in calls to <code>toString</code> throwing a
+ <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/StackOverflowError.html?is-external=true" title="class or interface in java.lang"><CODE>StackOverflowError</CODE></A>. However, the implementations for java's own <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util"><CODE>ArrayList</CODE></A> suffer
+ from the same flaw.
+ <p>
+ The <code>toString</code> method that is generated will print the class name as well as each field (both the name
+ and the value). You can optionally choose to suppress the printing of the field name, by setting the
+ <code>includeFieldNames</code> flag to <em>false</em>.
+ <p>
+ You can also choose to include the result of <code>toString</code> in your class's superclass by setting the
+ <code>callSuper</code> to <em>true</em>.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== ANNOTATION TYPE OPTIONAL MEMBER SUMMARY =========== -->
+
+<A NAME="annotation_type_optional_element_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Optional Element Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../lombok/ToString.html#callSuper()">callSuper</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include the result of the superclass's implementation of <code>toString</code> in the output.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../lombok/ToString.html#doNotUseGetters()">doNotUseGetters</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Normally, if getters are available, those are called.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../lombok/ToString.html#exclude()">exclude</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any fields listed here will not be printed in the generated <code>toString</code> implementation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../lombok/ToString.html#includeFieldNames()">includeFieldNames</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Include the name of each field when printing it.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../lombok/ToString.html#of()">of</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If present, explicitly lists the fields that are to be printed.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="includeFieldNames()"><!-- --></A><H3>
+includeFieldNames</H3>
+<PRE>
+public abstract boolean <B>includeFieldNames</B></PRE>
+<DL>
+<DD>Include the name of each field when printing it.
+ <strong>default: true</strong>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+<DL>
+<DT><B>Default:</B><DD>true</DD>
+</DL>
+</DL>
+<HR>
+
+<A NAME="exclude()"><!-- --></A><H3>
+exclude</H3>
+<PRE>
+public abstract <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[] <B>exclude</B></PRE>
+<DL>
+<DD>Any fields listed here will not be printed in the generated <code>toString</code> implementation.
+ Mutually exclusive with <A HREF="../lombok/ToString.html#of()"><CODE>of()</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+<DL>
+<DT><B>Default:</B><DD>{}</DD>
+</DL>
+</DL>
+<HR>
+
+<A NAME="of()"><!-- --></A><H3>
+of</H3>
+<PRE>
+public abstract <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>[] <B>of</B></PRE>
+<DL>
+<DD>If present, explicitly lists the fields that are to be printed.
+ Normally, all non-static fields are printed.
+ <p>
+ Mutually exclusive with <A HREF="../lombok/ToString.html#exclude()"><CODE>exclude()</CODE></A>.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+<DL>
+<DT><B>Default:</B><DD>{}</DD>
+</DL>
+</DL>
+<HR>
+
+<A NAME="callSuper()"><!-- --></A><H3>
+callSuper</H3>
+<PRE>
+public abstract boolean <B>callSuper</B></PRE>
+<DL>
+<DD>Include the result of the superclass's implementation of <code>toString</code> in the output.
+ <strong>default: false</strong>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+<DL>
+<DT><B>Default:</B><DD>false</DD>
+</DL>
+</DL>
+<HR>
+
+<A NAME="doNotUseGetters()"><!-- --></A><H3>
+doNotUseGetters</H3>
+<PRE>
+public abstract boolean <B>doNotUseGetters</B></PRE>
+<DL>
+<DD>Normally, if getters are available, those are called. To suppress this and let the generated code use the fields directly, set this to <code>true</code>.
+ <strong>default: false</strong>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+<DL>
+<DT><B>Default:</B><DD>false</DD>
+</DL>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../lombok/Synchronized.html" title="annotation in lombok"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../lombok/val.html" title="annotation in lombok"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../index.html?lombok/ToString.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ToString.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;REQUIRED&nbsp;|&nbsp;<A HREF="#annotation_type_optional_element_summary">OPTIONAL</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#annotation_type_element_detail">ELEMENT</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+<i>Copyright &copy; 2009-2010 The Project Lombok Authors, licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT licence</a>.
+</BODY>
+</HTML>

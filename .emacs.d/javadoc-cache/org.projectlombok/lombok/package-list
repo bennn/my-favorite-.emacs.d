@@ -1,0 +1,15 @@
+lombok
+lombok.bytecode
+lombok.core
+lombok.core.debug
+lombok.core.handlers
+lombok.core.runtimeDependencies
+lombok.eclipse
+lombok.eclipse.handlers
+lombok.extern.apachecommons
+lombok.extern.java
+lombok.extern.log4j
+lombok.extern.slf4j
+lombok.javac
+lombok.javac.apt
+lombok.javac.handlers

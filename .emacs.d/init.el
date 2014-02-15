@@ -1,5 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d")
 
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+
 ;;; Turn off the annoying crap immediately
 (column-number-mode 1)
 (delete-selection-mode t)
@@ -30,22 +32,29 @@
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
 
+;;; Turn on some crap
+
+;; associate xml, xsd, etc with nxml-mode
+(add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
+(setq nxml-slash-auto-complete-flag t)
+
 ;;; Packages
 
 (require 'tabulated-list)
 (require 'package)
 (require 'package-helper)
-
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)(package-initialize)
+
 
 ;; Install packages not needing configuration
 ;; (with-package (impatient-mode lua-mode memoize rdp))
 
 ;; Load local "packages"
 (require 'imgur)
+(require 'rcirc-init)
 (require 'misc)
 
 
@@ -57,8 +66,9 @@
 (global-set-key "\C-x\C-k" 'compile)
 ;; (global-set-key [f2] (expose #'revert-buffer nil t))
 (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile)))
-(global-set-key "$" 'match-paren)
+(global-set-key (kbd "C-$") 'match-paren)
 (global-set-key (kbd "C-c d") 'insert-date)
+(global-set-key (kbd "C-c s") 'insert-signature)
 
 
 ;;; auto-mode-alist entries
@@ -69,20 +79,31 @@
 
 ;;; Individual package configurations
 
-(require 'tex-site)
+;; (require 'tex-site)
 
 (load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
+
+(load-file "~/.emacs.d/exec-path-from-shell.el")
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-tm)
 
-(add-to-list 'load-path "~/.emacs.d/tuareg-mode")
+(add-to-list 'load-path "~/.emacs.d/tuareg-2.0.5")
 (autoload 'tuareg-mode "tuareg" "Major mode for OCaml" t)
 (add-to-list 'auto-mode-alist '("[.]ml[liy]?$" . tuareg-mode))
 ;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process" t)
 (setq tuareg-in-indent 0)
+
+;; android-mode
+(add-to-list 'load-path "~/.emacs.d/android-mode")
+(require 'android-mode)
+
+(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 ;; (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
 ;; (defun ielm-repl ()
@@ -106,7 +127,7 @@
   (setq display-time-24hr-format t)
   (display-time-mode t))
 
-;; I dunno what this does
+;; http://www.emacswiki.org/emacs/ComintMode
 (with-package comint
   (message "comint loaded: %s" (featurep 'comint))
   (setq comint-prompt-read-only t
@@ -121,18 +142,16 @@
   (setq tramp-persistency-file-name
     (concat temporary-file-directory "tramp-" (user-login-name))))
 
-;; ;; Not working
 ;; (with-package* whitespace-cleanup
 ;;   (setq-default indent-tabs-mode nil))
 
 (with-package (simple utility)
-  ;; (skeeto) disable so I don't use it by accident
   (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ()))))
 
-(with-package uniquify
+(with-package* uniquify
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
-(with-package winner
+(with-package* winner
   (winner-mode 1)
   (windmove-default-keybindings))
 
@@ -178,9 +197,9 @@
 ;;   (define-key skewer-mode-map (kbd "C-c $")
 ;;     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
-(with-package clojure-mode
+(with-package* clojure-mode
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
-n
+
 (with-package nrepl
   (defadvice nrepl-popup-buffer-display (after nrepl-focus-errors activate)
     "Focus the error buffer after errors, like Emacs normally does."
@@ -218,9 +237,10 @@ n
   (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
 
+;; chat client
 (with-package erc
-  (when (eq 0 (string-match "wello" (user-login-name)))
-    (setq erc-nick "skeeto")))
+  (when (eq 0 (string-match "ben" (user-login-name)))
+    (setq erc-nick "ben")))
 
 (with-package 'cc-mode
   (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
@@ -254,14 +274,14 @@ n
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
-(add-to-list 'load-path "~/.emacs.d/ido-ubiquitous/")
-(require 'ido-ubiquitous)
-(setq ido-enable-flex-matching t)
-(setq ido-show-dot-for-dired t) ; Old habits die hard! (???)
-(setq ido-everywhere t)
-(ido-mode 1)
-(ido-ubiquitous-mode)
-(setq ido-ubiquitous-enable-compatibility nil)
+;; (add-to-list 'load-path "~/.emacs.d/ido-ubiquitous/")
+;; (require 'ido-ubiquitous)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-show-dot-for-dired t) ; Old habits die hard! (???)
+;; (setq ido-everywhere t)
+;; (ido-mode 1)
+;; (ido-ubiquitous-mode)
+;; (setq ido-ubiquitous-enable-compatibility nil)
 
 (with-package* smex
   (smex-initialize)
@@ -281,29 +301,24 @@ n
 ;; ;;    '(highlight            ((t (:background "black"))))
 ;; ;;    '(magit-item-highlight ((t :background "black")))))
 
-;; (with-package* javadoc-lookup-autoloads)
-;;   (global-set-key (kbd "C-h j") 'javadoc-lookup)
-
-(add-to-list 'load-path "~/.emacs.d/javadoc-lookup/")
-(require 'javadoc-lookup)
-(global-set-key (kbd "C-h j") 'javadoc-lookup)
-;; ;; (with-package* javadoc-lookup
-;;   (javadoc-add-artifacts
-;;    [org.lwjgl.lwjgl lwjgl "2.8.2"]
-;;    [com.nullprogram native-guide "0.2"]
-;;    [junit junit "4.10"]
-;;    [org.projectlombok lombok "0.10.4"]
-;;    [org.mockito mockito-all "1.9.0"]
-;;    [com.beust jcommander "1.25"]
-;;    [com.google.guava guava "12.0"]
-;;    [org.jbox2d jbox2d-library "2.1.2.2"]
-;;    [org.apache.commons commons-math3 "3.0"]
-;;    [org.pcollections pcollections "2.1.2"]
-;;    [org.xerial sqlite-jdbc "3.7.2"]
-;;    [com.googlecode.lanterna lanterna "2.1.2"]
-;;    [joda-time joda-time "2.1"]
-;;    [org.apache.lucene lucene-core "3.3.0"])
-;; ;; )
+(with-package* javadoc-lookup
+  (global-set-key (kbd "C-h j") 'javadoc-lookup)
+  (javadoc-add-artifacts
+   [org.lwjgl.lwjgl lwjgl "2.8.2"]
+   [com.nullprogram native-guide "0.2"]
+   [junit junit "4.10"]
+   [org.projectlombok lombok "0.10.4"]
+   [org.mockito mockito-all "1.9.0"]
+   [com.beust jcommander "1.25"]
+   [com.google.guava guava "12.0"]
+   [org.jbox2d jbox2d-library "2.1.2.2"]
+   [org.apache.commons commons-math3 "3.0"]
+   [org.pcollections pcollections "2.1.2"]
+   [org.xerial sqlite-jdbc "3.7.2"]
+   [com.googlecode.lanterna lanterna "2.1.2"]
+   [joda-time joda-time "2.1"]
+   [org.apache.lucene lucene-core "3.3.0"])
+)
 
 (with-package browse-url
   (when (executable-find "chromium-browser")
@@ -344,16 +359,6 @@ n
                       "C-x r" 'run
                       "C-x C" 'clean))
 
-;; (add-to-list load-path "~/.emacs.d/haskell-mode/")
-;; (load "~/lib/emacs/haskell-mode/haskell-site-file")
-;; (require 'haskell-mode)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-interactive-mode)
-;; ;; Choose  one indentation option
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;; ; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;; ; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-
 (setq load-path (cons "/usr/local/lib/kics2-0.2.4/tools/emacs/" load-path))
 (setq auto-mode-alist
       (append auto-mode-alist
@@ -367,7 +372,7 @@ n
 (add-hook 'curry-mode-hook 'turn-on-curry-decl-scan)
 (add-hook 'curry-mode-hook 'turn-on-curry-pakcs)
 
-(with-package coffee-mode
+(with-package* coffee-mode
   (add-to-list 'auto-mode-alist '("[.]cunit$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("[.]icoffee$" . coffee-mode)))
 
@@ -382,4 +387,27 @@ n
   (add-hook 'python-mode-hook 'turn-on-fic-mode)
   (add-hook 'tuareg-mode-hook 'turn-on-fic-mode))
 
+;;; ignoring you now
+(add-to-list 'completion-ignored-extensions ".hi")
+(add-to-list 'completion-ignored-extensions ".cmi")
+(add-to-list 'completion-ignored-extensions ".cmo")
+(add-to-list 'completion-ignored-extensions "~")
+(add-to-list 'completion-ignored-extensions "#")
+
 (provide 'init) ; make (require 'init) happy
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-mode t)
+ '(send-mail-function (quote sendmail-send-it))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

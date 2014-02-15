@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: eran
+Build-Jdk: 1.7.0_03-icedtea
+Specification-Title: Commons Math
+Specification-Version: 3.0
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Commons Math
+Implementation-Version: 3.0
+Implementation-Vendor-Id: org.apache.commons
+Implementation-Vendor: The Apache Software Foundation
+

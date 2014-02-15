@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+JavacNode (Lombok)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="JavacNode (Lombok)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../lombok/javac/JavacASTVisitor.Printer.html" title="class in lombok.javac"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../lombok/javac/JavacResolution.html" title="class in lombok.javac"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../index.html?lombok/javac/JavacNode.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JavacNode.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_lombok.core.LombokNode">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+lombok.javac</FONT>
+<BR>
+Class JavacNode</H2>
+<PRE>
+<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</A>
+  <IMG SRC="../../resources/inherit.gif" ALT="extended by "><A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">lombok.core.LombokNode</A>&lt;<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>,<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>,com.sun.tools.javac.tree.JCTree&gt;
+      <IMG SRC="../../resources/inherit.gif" ALT="extended by "><B>lombok.javac.JavacNode</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>JavacNode</B><DT>extends <A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>,<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>,com.sun.tools.javac.tree.JCTree&gt;</DL>
+</PRE>
+
+<P>
+Javac specific version of the LombokNode class.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_lombok.core.LombokNode"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class lombok.core.<A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../lombok/core/LombokNode.html#ast">ast</A>, <A HREF="../../lombok/core/LombokNode.html#children">children</A>, <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant">isStructurallySignificant</A>, <A HREF="../../lombok/core/LombokNode.html#kind">kind</A>, <A HREF="../../lombok/core/LombokNode.html#node">node</A>, <A HREF="../../lombok/core/LombokNode.html#parent">parent</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_lombok.core.DiagnosticsReceiver"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface lombok.core.<A HREF="../../lombok/core/DiagnosticsReceiver.html" title="interface in lombok.core">DiagnosticsReceiver</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../lombok/core/DiagnosticsReceiver.html#CONSOLE">CONSOLE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#JavacNode(lombok.javac.JavacAST, com.sun.tools.javac.tree.JCTree, java.util.List, lombok.core.AST.Kind)">JavacNode</A></B>(<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>&nbsp;ast,
+          com.sun.tools.javac.tree.JCTree&nbsp;node,
+          <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>&gt;&nbsp;children,
+          <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;kind)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passes through to the parent constructor.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#addError(java.lang.String)">addError</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates an compiler error focused on the AST node represented by this node object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#addError(java.lang.String, com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition)">addError</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+         com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition&nbsp;pos)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates an compiler error focused on the AST node represented by this node object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#addWarning(java.lang.String)">addWarning</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates a compiler warning focused on the AST node represented by this node object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#addWarning(java.lang.String, com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition)">addWarning</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+           com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition&nbsp;pos)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates a compiler warning focused on the AST node represented by this node object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#calculateIsStructurallySignificant(com.sun.tools.javac.tree.JCTree)">calculateIsStructurallySignificant</A></B>(com.sun.tools.javac.tree.JCTree&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant"><CODE>LombokNode.isStructurallySignificant</CODE></A>.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#fieldContainsAnnotation(com.sun.tools.javac.tree.JCTree, com.sun.tools.javac.tree.JCTree)">fieldContainsAnnotation</A></B>(com.sun.tools.javac.tree.JCTree&nbsp;field,
+                        com.sun.tools.javac.tree.JCTree&nbsp;annotation)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return <code>true</code> if the annotation is attached to the field.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.tools.javac.util.Context</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#getContext()">getContext</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning JavacAST object's getContext method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#getName()">getName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the name of your type (simple name), method, field, or local variable.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.tools.javac.code.Symtab</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#getSymbolTable()">getSymbolTable</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning JavacAST object's getSymbolTable method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.tools.javac.tree.TreeMaker</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#getTreeMaker()">getTreeMaker</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning JavacAST object's getTreeMaker method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.tools.javac.model.JavacTypes</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#getTypesUtil()">getTypesUtil</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning JavacAST object's getTypesUtil method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#shouldDeleteLombokAnnotations()">shouldDeleteLombokAnnotations</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;com.sun.tools.javac.util.Name</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#toName(java.lang.String)">toName</A></B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenient shortcut to the owning JavacAST object's toName method.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../lombok/javac/JavacNode.html#traverse(lombok.javac.JavacASTVisitor)">traverse</A></B>(<A HREF="../../lombok/javac/JavacASTVisitor.html" title="interface in lombok.javac">JavacASTVisitor</A>&nbsp;visitor)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visits this node and all child nodes depth-first, calling the provided visitor's visit methods.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_lombok.core.LombokNode"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class lombok.core.<A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../lombok/core/LombokNode.html#add(N, lombok.core.AST.Kind)">add</A>, <A HREF="../../lombok/core/LombokNode.html#directUp()">directUp</A>, <A HREF="../../lombok/core/LombokNode.html#down()">down</A>, <A HREF="../../lombok/core/LombokNode.html#get()">get</A>, <A HREF="../../lombok/core/LombokNode.html#getAst()">getAst</A>, <A HREF="../../lombok/core/LombokNode.html#getFileName()">getFileName</A>, <A HREF="../../lombok/core/LombokNode.html#getImportStatements()">getImportStatements</A>, <A HREF="../../lombok/core/LombokNode.html#getKind()">getKind</A>, <A HREF="../../lombok/core/LombokNode.html#getNodeFor(N)">getNodeFor</A>, <A HREF="../../lombok/core/LombokNode.html#getPackageDeclaration()">getPackageDeclaration</A>, <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant()">isStructurallySignificant</A>, <A HREF="../../lombok/core/LombokNode.html#rebuild()">rebuild</A>, <A HREF="../../lombok/core/LombokNode.html#removeChild(L)">removeChild</A>, <A HREF="../../lombok/core/LombokNode.html#replaceChildNode(N, N)">replaceChildNode</A>, <A HREF="../../lombok/core/LombokNode.html#replaceWith(N, lombok.core.AST.Kind)">replaceWith</A>, <A HREF="../../lombok/core/LombokNode.html#top()">top</A>, <A HREF="../../lombok/core/LombokNode.html#toString()">toString</A>, <A HREF="../../lombok/core/LombokNode.html#up()">up</A>, <A HREF="../../lombok/core/LombokNode.html#upFromAnnotationToFields()">upFromAnnotationToFields</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#clone()" title="class or interface in java.lang">clone</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang">equals</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#finalize()" title="class or interface in java.lang">finalize</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#getClass()" title="class or interface in java.lang">getClass</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#hashCode()" title="class or interface in java.lang">hashCode</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notify()" title="class or interface in java.lang">notify</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#notifyAll()" title="class or interface in java.lang">notifyAll</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait()" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long)" title="class or interface in java.lang">wait</A>, <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/Object.html#wait(long, int)" title="class or interface in java.lang">wait</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="JavacNode(lombok.javac.JavacAST, com.sun.tools.javac.tree.JCTree, java.util.List, lombok.core.AST.Kind)"><!-- --></A><H3>
+JavacNode</H3>
+<PRE>
+public <B>JavacNode</B>(<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>&nbsp;ast,
+                 com.sun.tools.javac.tree.JCTree&nbsp;node,
+                 <A HREF="http://download.oracle.com/javase/6/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</A>&lt;<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>&gt;&nbsp;children,
+                 <A HREF="../../lombok/core/AST.Kind.html" title="enum in lombok.core">AST.Kind</A>&nbsp;kind)</PRE>
+<DL>
+<DD>Passes through to the parent constructor.
+<P>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="traverse(lombok.javac.JavacASTVisitor)"><!-- --></A><H3>
+traverse</H3>
+<PRE>
+public void <B>traverse</B>(<A HREF="../../lombok/javac/JavacASTVisitor.html" title="interface in lombok.javac">JavacASTVisitor</A>&nbsp;visitor)</PRE>
+<DL>
+<DD>Visits this node and all child nodes depth-first, calling the provided visitor's visit methods.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName()"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public <A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A> <B>getName</B>()</PRE>
+<DL>
+<DD>Return the name of your type (simple name), method, field, or local variable. Return null if this
+ node doesn't really have a name, such as initializers, while statements, etc.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../lombok/core/LombokNode.html#getName()">getName</A></CODE> in class <CODE><A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>,<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>,com.sun.tools.javac.tree.JCTree&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="calculateIsStructurallySignificant(com.sun.tools.javac.tree.JCTree)"><!-- --></A><H3>
+calculateIsStructurallySignificant</H3>
+<PRE>
+protected boolean <B>calculateIsStructurallySignificant</B>(com.sun.tools.javac.tree.JCTree&nbsp;parent)</PRE>
+<DL>
+<DD>See <A HREF="../../lombok/core/LombokNode.html#isStructurallySignificant"><CODE>LombokNode.isStructurallySignificant</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../lombok/core/LombokNode.html#calculateIsStructurallySignificant(N)">calculateIsStructurallySignificant</A></CODE> in class <CODE><A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>,<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>,com.sun.tools.javac.tree.JCTree&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fieldContainsAnnotation(com.sun.tools.javac.tree.JCTree, com.sun.tools.javac.tree.JCTree)"><!-- --></A><H3>
+fieldContainsAnnotation</H3>
+<PRE>
+protected boolean <B>fieldContainsAnnotation</B>(com.sun.tools.javac.tree.JCTree&nbsp;field,
+                                          com.sun.tools.javac.tree.JCTree&nbsp;annotation)</PRE>
+<DL>
+<DD><B>Description copied from class: <CODE><A HREF="../../lombok/core/LombokNode.html#fieldContainsAnnotation(N, N)">LombokNode</A></CODE></B></DD>
+<DD>Return <code>true</code> if the annotation is attached to the field.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../lombok/core/LombokNode.html#fieldContainsAnnotation(N, N)">fieldContainsAnnotation</A></CODE> in class <CODE><A HREF="../../lombok/core/LombokNode.html" title="class in lombok.core">LombokNode</A>&lt;<A HREF="../../lombok/javac/JavacAST.html" title="class in lombok.javac">JavacAST</A>,<A HREF="../../lombok/javac/JavacNode.html" title="class in lombok.javac">JavacNode</A>,com.sun.tools.javac.tree.JCTree&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTreeMaker()"><!-- --></A><H3>
+getTreeMaker</H3>
+<PRE>
+public com.sun.tools.javac.tree.TreeMaker <B>getTreeMaker</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning JavacAST object's getTreeMaker method.
+<P>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/javac/JavacAST.html#getTreeMaker()"><CODE>JavacAST.getTreeMaker()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSymbolTable()"><!-- --></A><H3>
+getSymbolTable</H3>
+<PRE>
+public com.sun.tools.javac.code.Symtab <B>getSymbolTable</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning JavacAST object's getSymbolTable method.
+<P>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/javac/JavacAST.html#getSymbolTable()"><CODE>JavacAST.getSymbolTable()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTypesUtil()"><!-- --></A><H3>
+getTypesUtil</H3>
+<PRE>
+public com.sun.tools.javac.model.JavacTypes <B>getTypesUtil</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning JavacAST object's getTypesUtil method.
+<P>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/javac/JavacAST.html#getTypesUtil()"><CODE>JavacAST.getTypesUtil()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getContext()"><!-- --></A><H3>
+getContext</H3>
+<PRE>
+public com.sun.tools.javac.util.Context <B>getContext</B>()</PRE>
+<DL>
+<DD>Convenient shortcut to the owning JavacAST object's getContext method.
+<P>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/javac/JavacAST.html#getContext()"><CODE>JavacAST.getContext()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="shouldDeleteLombokAnnotations()"><!-- --></A><H3>
+shouldDeleteLombokAnnotations</H3>
+<PRE>
+public boolean <B>shouldDeleteLombokAnnotations</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toName(java.lang.String)"><!-- --></A><H3>
+toName</H3>
+<PRE>
+public com.sun.tools.javac.util.Name <B>toName</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;name)</PRE>
+<DL>
+<DD>Convenient shortcut to the owning JavacAST object's toName method.
+<P>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../lombok/javac/JavacAST.html#toName(java.lang.String)"><CODE>JavacAST.toName(String)</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addError(java.lang.String)"><!-- --></A><H3>
+addError</H3>
+<PRE>
+public void <B>addError</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message)</PRE>
+<DL>
+<DD>Generates an compiler error focused on the AST node represented by this node object.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addError(java.lang.String, com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition)"><!-- --></A><H3>
+addError</H3>
+<PRE>
+public void <B>addError</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                     com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition&nbsp;pos)</PRE>
+<DL>
+<DD>Generates an compiler error focused on the AST node represented by this node object.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addWarning(java.lang.String)"><!-- --></A><H3>
+addWarning</H3>
+<PRE>
+public void <B>addWarning</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message)</PRE>
+<DL>
+<DD>Generates a compiler warning focused on the AST node represented by this node object.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addWarning(java.lang.String, com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition)"><!-- --></A><H3>
+addWarning</H3>
+<PRE>
+public void <B>addWarning</B>(<A HREF="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</A>&nbsp;message,
+                       com.sun.tools.javac.util.JCDiagnostic.DiagnosticPosition&nbsp;pos)</PRE>
+<DL>
+<DD>Generates a compiler warning focused on the AST node represented by this node object.
+<P>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+<a href='http://projectlombok.org/' target='_blank'>Lombok</a> - v0.10.4</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../lombok/javac/JavacASTVisitor.Printer.html" title="class in lombok.javac"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../lombok/javac/JavacResolution.html" title="class in lombok.javac"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../index.html?lombok/javac/JavacNode.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="JavacNode.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_lombok.core.LombokNode">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+<i>Copyright &copy; 2009-2010 The Project Lombok Authors, licensed under the <a href='http://www.opensource.org/licenses/mit-license.php'>MIT licence</a>.
+</BODY>
+</HTML>
