@@ -39,10 +39,10 @@
 (setq rcirc-default-user-name "bennn")
 (setq rcirc-default-full-name "ben greenman")
 
-;; Join these channels at startup.
-(setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$" "#emacs" "#geogit" "#python" "#math")))
-;; #racket #prl #
+;; ;; Join these channels at startup.
+;; (setq rcirc-startup-channels-alist
+;;       '(("\\.freenode\\.net$")))
+;; #racket #prl #ceylonlang #cornell-cis #emacs #math #python #geogit
 
 ;; ;; Connect to servers.
 ;; (rcirc); freenode is the default

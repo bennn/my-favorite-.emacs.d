@@ -1,0 +1,639 @@
+2014-03-20 11:26 *** bennn JOIN
+2014-03-20 11:26 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-20 11:26 *** NAMES @ChanServ asumu bennn danking
+                           fabianm_alt gabot ianjneu jld jrslepak
+                           jschuster parcha pauls_ samth sstrickl
+                           stamourv stamourv` stchang tonyg tov
+                           turon wilbowma
+2014-03-20 11:32 <samth> stamourv: what's the current status of the
+                         benchmark library?
+2014-03-20 11:40 <stamourv> Usable and documented.
+2014-03-20 11:40 <stamourv> Interface may change some at some
+                            point, but should be stable for the
+                            foreseeable future.
+2014-03-20 11:40 <samth> stamourv: awesome
+2014-03-20 11:41 <stamourv> I'm still not 100% happy with the
+                            statistics, but it's good enough that
+                            I'm using it for my OOPSLA submission.
+2014-03-20 11:41 <stamourv> It's not on the package catalog yet,
+                            because the interface may still change.
+2014-03-20 11:41 <samth> put it there with a version less than 1
+2014-03-20 11:42 <samth> we agreed on this convention, i believe
+2014-03-20 11:43 <samth> also, i just wrote a pull request for you
+                         :)
+2014-03-20 11:47 <samth> stamourv: and you're still opposed to
+                         making `contract-benchmarks` into a
+                         general benchmark suite?
+2014-03-20 11:49 <stamourv> Re catalog: Maybe.
+2014-03-20 11:49 <stamourv> Re pull request: what about?
+2014-03-20 11:50 <stamourv> Re benchmarks: Hesitating. We need a
+                            general benchmark suite, which should
+                            include (some of) the contract
+                            benchmarks, and others too.
+2014-03-20 11:52 <samth> stamourv: re PR: fixing a link
+2014-03-20 11:53 <samth> stamourv: my feeling about benchmark
+                         suites is as follows
+2014-03-20 11:53 <samth> we want a benchmark suite
+2014-03-20 11:53 <samth> if we had one, we'd want to put a bunch of
+                         stuff in it
+2014-03-20 11:53 <samth> those benchmarks are already nicely
+                         separated out and test substantial parts
+                         of the code base
+2014-03-20 11:54 <samth> so we'd want to add basically all of them
+2014-03-20 11:59 <stamourv> Re nicely separated out: that's
+                            unfortunately not completely
+                            true. They're really tangled to our
+                            infrastructure, and have weird
+                            dependency patterns.
+2014-03-20 12:00 <samth> stamourv: well, at least better separated
+                         out than anything else we have, really
+2014-03-20 12:00 <stamourv> Just yesterday, running the slideshow
+                            benchmark managed to recompile part of
+                            my install to link with the frozen
+                            slideshow.
+2014-03-20 12:00 <samth> weird
+2014-03-20 12:00 <samth> what part of it did it depend on?
+2014-03-20 12:00 <stamourv> I have to fix bitrot in them pretty
+                            much every time I want to run them.
+2014-03-20 12:00 <samth> b/c they depend on undocumented and
+                         changing parts of libraries?
+2014-03-20 12:01 <samth> or documented and shouldn't-be-but-are
+                         changing parts?
+2014-03-20 12:01 <stamourv> samth: I forget the exact problem, but
+                            the pattern was that dependencies were
+                            going out of the frozen collects, and
+                            back in again.
+2014-03-20 12:01 <stamourv> The latter.
+2014-03-20 12:01 <samth> dammit
+2014-03-20 12:01 <samth> we should stop doing that
+2014-03-20 12:01 <stamourv> E.g. I had to fix the frozen TR
+                            recently because it was using a part of
+                            the contract system that disappeared.
+2014-03-20 12:01 <stamourv> Scribble is a real pain for that too.
+2014-03-20 12:02 <samth> i think TR uses some undocumented parts
+2014-03-20 12:02 <samth> or did
+2014-03-20 12:02 <stamourv> lazy, ode, plot and funky-town are
+                            pretty much the only completely well
+                            behaved ones.
+2014-03-20 12:03 *** lkuper JOIN
+2014-03-20 12:03 <stamourv> I've pretty much given up on using the
+                            others for now.
+2014-03-20 12:03 <samth> we need to obey our own interfaces better
+2014-03-20 12:05 *** dan_f JOIN
+2014-03-20 12:09 <stamourv> Yes.
+2014-03-20 12:10 <stamourv> Part of the problem, IMO, is that since
+                            everything is in one big repo, changing
+                            interfaces hurts less: you just change
+                            all uses.
+2014-03-20 12:10 <samth> if you have examples, it would be nice to
+                         fix them
+2014-03-20 12:10 <stamourv> Just look at the repo for commits that
+                            mention "bitrot".
+2014-03-20 12:10 <samth> yes, hopefully we can fix that by
+                         splitting
+2014-03-20 12:12 <samth> the TR bitrot looks like TR being bad
+2014-03-20 12:14 <samth> and you gave up on keyboard?
+2014-03-20 12:19 <stamourv> Yes. A bloody pain to set up and run.
+2014-03-20 12:19 <stamourv> Needs a specific package installed (a
+                            bit of a pain to do programmatically,
+                            at leasy when I tried), which makes
+                            DrRacket unusable.
+2014-03-20 12:20 <stamourv> And takes over the machine while it
+                            runs (like slideshow, but worse).
+2014-03-20 12:20 [stamourv heads out for lunch.]
+2014-03-20 12:29 <samth> asumu: this is relevant to your interests:
+                         https://code.facebook.com/posts/264544830379293/hack-a-new-programming-language-for-hhvm/
+2014-03-20 12:42 *** lkuper QUIT Quit: lkuper
+2014-03-20 13:42 <tonyg> HHVM :'-(
+2014-03-20 13:45 <asumu> samth: they even have continuations, heh.
+2014-03-20 13:45 <asumu> Except I doubt they are real
+                         continuations.
+2014-03-20 13:45 <asumu> samth: "Hack treats traits as a
+                         stand-alone entity during the type
+                         checking process. In other words, it
+                         ensures type consistency within the trait
+                         (i.e., as a black box, so to speak), but
+                         does not "copy and paste" the code into
+                         all of the classes that use the trait and
+                         check for type consistency there. The
+                         reason this is done comes down to
+                         performance."
+2014-03-20 13:45 <asumu> Interesting, they basically punt on
+                         checking class composition.
+2014-03-20 13:47 <asumu> Maybe I need a related work section on
+                         Hack and Typescript.
+2014-03-20 14:14 <asumu> http://createyourproglang.com/
+2014-03-20 14:14 <asumu> (the book I mentioned in conversation)
+2014-03-20 14:20 *** ianjneu QUIT Remote host closed the connection
+2014-03-20 14:22 <jrslepak> jschuster: Eiffel's subtyping can go in
+                            that list
+2014-03-20 14:23 <jschuster> what about it? I'm unfamiliar with its
+                             rules
+2014-03-20 14:23 <jrslepak> "every position is a covariant
+                            position"
+2014-03-20 14:25 <jrslepak> I can't remember their phrase for (run
+                            time) typing errors that arise from
+                            that, but they're common enough to have
+                            a special name
+2014-03-20 14:27 <jschuster> cool, thanks
+2014-03-20 14:27 <jschuster> jrslepak^
+2014-03-20 14:27 <jrslepak> oh yeah, "catcall" --
+                            http://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)#Covariant_method_argument_type
+2014-03-20 14:28 <jschuster> ha, that's a good pun
+2014-03-20 14:29 <jrslepak> makes about no sense without that
+                            "CatShelter" explanation
+2014-03-20 14:31 <jschuster> well, I've heard the "cat is a subtype
+                             of animal" example enough that it
+                             works for me
+2014-03-20 14:33 <jrslepak> oh, more official source says "cat" is
+                            acronym for "changed availability or
+                            type"
+2014-03-20 14:34 <jrslepak> KJP offers the nicely-timed, "We check
+                            the coercion table to see if there is a
+                            sacrifice of thanksgiving"
+2014-03-20 14:37 <samth> asumu: yes to that section
+2014-03-20 14:39 <jrslepak> jschuster: you could also write about
+                            J's natural language-based syntax
+                            classes or the parsing difficulties
+                            that arise from making juxtaposition
+                            mean too many things
+2014-03-20 14:40 <jschuster> oof, J might be too much for most
+                             programmers to grok in one sitting
+                             (when used as a single example of a
+                             broader point)
+2014-03-20 14:43 <jrslepak> the limitations of its syntax classes
+                            might be tough to explain to
+                            non-functional programmers, but not
+                            knowing how to parse "x y z" without
+                            knowing the values of x, y, and z
+                            should be a simple enough problem to
+                            explain
+2014-03-20 14:43 <jrslepak> and there's always the arity
+                            restriction
+2014-03-20 14:44 <jrslepak> (leads to lots of "pass by global")
+2014-03-20 14:45 <asumu> jschuster: in case you haven't read it,
+                         this might also be a source of inspiration
+                         for your blog post:
+                         http://cs.brown.edu/~sk/Publications/Papers/Published/sk-teach-pl-post-linnaean/
+2014-03-20 14:46 <asumu> (it might be helpful to point out other
+                         misconceptions programmers often have
+                         about PL to try to bridge the gap)
+2014-03-20 14:46 <jschuster> asumu: thanks, I think I read it a
+                             while back but forgot about it. that
+                             would be a good resource
+2014-03-20 14:46 <asumu> (and perhaps point out misconceptions
+                         researchers have about industry)
+2014-03-20 14:47 <asumu> (e.g., programmers aren't all stupid, but
+                         they may have different objectives or
+                         priorities)
+2014-03-20 14:47 <asumu> s/i.e./e.g./
+2014-03-20 15:00 <asumu> sstrickl, samth : the racket-dev-goodies
+                         repo has no LICENSE file, is LGPL fine
+                         with you two?
+2014-03-20 15:02 <sstrickl> yeah, I'm good with that
+2014-03-20 15:03 <asumu> Oh, I should also ask Billy when I see
+                         him.
+2014-03-20 15:28 *** ianjneu JOIN
+2014-03-20 15:28 *** ianjneu_ JOIN
+2014-03-20 15:39 <samth> asumu: fine w/ me
+2014-03-20 15:48 <samth> asumu: the HN discussion is interesting:
+                         https://news.ycombinator.com/item?id=7436401
+2014-03-20 15:49 <samth> for example:
+                         https://news.ycombinator.com/item?id=7437908
+!!! irc.freenode.net: deleted (closed)
+2014-03-20 19:53 /join #prl
+> 2014-03-20 19:53 *** bennn JOIN
+2014-03-20 19:53 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-20 19:53 *** NAMES @ChanServ asumu bennn dan_f danking
+                           fabianm_alt gabot jld jrslepak jschuster
+                           parcha pauls_ samth sstrickl stamourv
+                           stamourv` stchang tonyg tov turon
+                           wilbowma
+2014-03-20 19:54 <samth> asumu:
+                         https://news.ycombinator.com/item?id=7438111
+2014-03-20 20:12 <asumu> samth: I don't see how that can be sound
+                         if they don't actually check that the
+                         class has those methods when including the
+                         trait.
+2014-03-20 20:12 <asumu> i.e., the trait "application"
+2014-03-20 20:12 <asumu> Unless these trait requirements are
+                         mandatory.
+2014-03-20 20:13 <asumu> I should try to make a counterexample
+2014-03-20 20:15 <samth> as he says, we can try it out
+2014-03-20 20:16 <asumu> Ok, they do check that trait members are
+                         present.
+2014-03-20 20:18 <asumu> samth:
+                         https://gist.github.com/takikawa/9676911
+2014-03-20 20:18 <asumu> Should that type-check?
+2014-03-20 20:18 <samth> no
+2014-03-20 20:18 <samth> but i think you have to say "strict"
+                         somehow on the #lang line
+2014-03-20 20:19 <asumu> Oh, so it only checks that the abstract
+                         funtion exists, not its type?
+2014-03-20 20:19 <samth> i really don't know
+2014-03-20 20:20 <asumu> Yep, if you put a : string annotation on
+                         the concrete `foo` it doesn't
+                         protest. Heh.
+2014-03-20 20:20 <samth> well, that isn't an error yet
+2014-03-20 20:20 <samth> or is it?
+2014-03-20 20:21 <asumu> It seems like it should be, but I could be
+                         misunderstanding.
+2014-03-20 20:22 <asumu> Oh, you have to annotate the abstract
+                         method too.
+2014-03-20 20:23 <samth> adding types everywhere seems to show a
+                         type error for me
+2014-03-20 20:24 <asumu> Yeah, it does appear to be ok if you add
+                         type annotations everywhere.
+2014-03-20 20:24 <asumu> So if you don't add type annotations,
+                         there are no guarantees?
+2014-03-20 20:24 <asumu> (not even a cast presumably?)
+2014-03-20 20:25 <samth> there are some runtime checks, but i don't
+                         really understand what they do
+2014-03-20 20:25 <samth> but they're not full gradual typing
+2014-03-20 20:25 <samth> i think //strict is supposed to force full
+                         annotation
+2014-03-20 20:25 <samth> but it doesn't seem to
+2014-03-20 20:28 <samth> http://docs.hhvm.com/manual/en/hack.modes.strict.php
+2014-03-20 20:28 <samth> maybe you need to install it to really
+                         test
+2014-03-20 21:26 <tonyg> bisection is narrowing in on the commit
+                         introducing the TR slowdown I've been
+                         seeing
+2014-03-20 21:27 <tonyg> there are ~7 revs left to test; looking at
+                         just the commit messages, my money is on
+                         93a2798, 292a47c or bdb8833
+2014-03-20 21:28 <tonyg> (also possible, but less likely?: a8cc430)
+2014-03-20 21:28 <tonyg> <3 git bisect
+2014-03-20 21:41 *** jschuster QUIT Ping timeout: 265 seconds
+2014-03-20 22:00 *** bennn PART #geogit "Killed buffer"
+2014-03-20 22:03 <tonyg> huh, looking likely to be a8cc430
+2014-03-20 22:04 <tonyg> uh, or 4bc4a74
+2014-03-20 22:04 <tonyg> am on the final round now
+2014-03-20 22:04 <samth> the latter is unlikely since marketplace
+                         doesn't use classes
+2014-03-20 22:14 <tonyg> yep, the culprit is apparently
+                         a8cc430d0fc7090dd758e0f6738296edcb4d8490
+2014-03-20 22:39 <asumu> tonyg: hah, wow, I guess it was totally my
+                         fault instead. Thanks for doing the
+                         bisect.
+2014-03-20 22:39 <asumu> tonyg: do you have lots of type aliases?
+2014-03-20 22:41 *** jschuster JOIN
+2014-03-20 22:41 <asumu> I am surprised, since this means the
+                         overhead is in just doing the
+                         strongly-connected-components algorithm,
+                         which is linear in the number of type
+                         aliases.
+2014-03-20 22:50 <jrslepak> hehehe
+                            http://www.thebolditalic.com/articles/4637-parody-photos-of-the-sf-rental-market-are-darkly-funny
+2014-03-20 23:03 <asumu> samth, tonyg: ugh I made other things
+                         slower too
+                         http://drdr.racket-lang.org/28373/pkgs/typed-racket-pkgs/typed-racket-test/tests/typed-racket/succeed/new-metrics.rkt
+2014-03-20 23:28 <asumu> Okay, I've narrowed down what's causing
+                         the slowdown. It's one line.
+2014-03-21 01:08 *** jld QUIT Ping timeout: 246 seconds
+2014-03-21 01:12 *** jld JOIN
+2014-03-21 01:49 *** sstrickl QUIT Quit: sstrickl
+2014-03-21 03:06 *** jschuster QUIT Ping timeout: 240 seconds
+2014-03-21 03:08 *** jschuster JOIN
+2014-03-21 04:57 *** dan_f QUIT Quit: dan_f
+2014-03-21 08:06 *** ianjneu JOIN
+2014-03-21 08:10 *** ianjneu_ JOIN
+!!! irc.freenode.net: deleted (closed)
+> 2014-03-21 13:21 *** bennn JOIN
+2014-03-21 13:21 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-21 13:21 *** NAMES @ChanServ asumu bennn danking
+                           fabianm_alt gabot ianjneu jld jrslepak
+                           jschuster parcha pauls_ samth sstrickl
+                           stamourv stamourv` stchang tonyg tov
+                           turon wilbowma
+2014-03-21 13:21 /join #cornell-cis
+2014-03-21 13:33 *** fabianm_alt NICK fabianm
+2014-03-21 14:01 *** ianjneu QUIT Quit: leaving
+2014-03-21 14:03 [stamourv is ready for round 2 of reviews.]
+2014-03-21 14:03 <stamourv> Anyone wants a copy?
+2014-03-21 14:03 <stamourv> In other news, evince (atril, really)
+                            segfaults when printing it.
+2014-03-21 14:03 <stamourv> Boy what a piece of shit.
+2014-03-21 14:19 *** dan_f JOIN
+2014-03-21 14:22 <samth> stamourv: send me a copy?
+2014-03-21 14:22 <stamourv> I just did.
+2014-03-21 14:23 <samth> stamourv: there are 6 em-dashes in the
+                         abstract
+2014-03-21 14:23 <stamourv> Yeah, I've gone a little overboard with
+                            them.
+2014-03-21 14:23 <samth> and 6 more on the first page
+2014-03-21 14:23 <stamourv> I still have some issues with the finer
+                            points of english punctuation.
+2014-03-21 14:23 <samth> literally that was the first thing i
+                         noticed
+2014-03-21 14:28 <stamourv> Ok, pruning some of them now.
+2014-03-21 14:34 *** ianjneu JOIN
+2014-03-21 14:53 *** dan_f QUIT Ping timeout: 245 seconds
+2014-03-21 15:32 <tonyg> asumu: yeah I'm using define-type in many
+                         places
+2014-03-21 15:33 <tonyg> asumu: and frequently end up with
+                         recursion in long loops, indirected
+                         through type aliases at every stage
+2014-03-21 15:33 <tonyg> asumu: I'm trying out your patch now
+2014-03-21 15:40 <tonyg> asumu: yep! back down to normal
+                         compile-times for marketplace.
+2014-03-21 15:40 <tonyg> will also email
+2014-03-21 16:17 <tonyg> (Einstuerzende Neubauten is good jukebox
+                         ammo, come to think of it. (Currently
+                         listening to "Tanz Debil" from "Strategies
+                         Against Architecture". (Trivia: the
+                         central percussive element of the
+                         tune^Wrecording was sampled to great
+                         effect by the Jesus and Mary Chain on
+                         Honey's Dead)))
+2014-03-21 16:52 <stamourv> tonyg: I don't have that one. I only
+                            have "Strategies Against Architecture
+                            II", which is "poppier".
+2014-03-21 17:20 <tonyg> stamourv: that word applied to EN is quite
+                         amusing
+2014-03-21 17:22 <stamourv> tonyg: Honestly, some of their recent
+                            stuff (Silence is Sexy, in particular)
+                            is pretty tame.
+2014-03-21 17:22 <tonyg> stamourv: yeah
+2014-03-21 17:28 <tonyg> stamourv: huh, i don't have gegen
+                         architektur vol II it turns out
+2014-03-21 17:29 <stamourv> Want it?
+2014-03-21 17:29 <tonyg> yes please! :)
+2014-03-21 17:29 <stamourv> 1 sec, will transfer to stockholm.
+2014-03-21 17:30 <tonyg> sweeeeeeet. want vol I?
+2014-03-21 17:30 <stamourv> Sure!
+2014-03-21 17:30 <tonyg> stamourv: it's in /home/tonyg/Music/Skip
+                         Music/Hot/Einstürzende
+                         Neubauten/Strategies Against Architecture,
+                         Vol. 1
+2014-03-21 17:31 <stamourv> Ok, transferring.
+2014-03-21 17:31 <stamourv> Thanks!
+2014-03-21 17:35 <stamourv> /home/stamourv/music/Strategies Against
+                            Architecture II
+2014-03-21 17:35 <stamourv> Not done transferring, though.
+2014-03-21 17:36 <stamourv> May take a while, my home connection
+                            has shitty upload.
+2014-03-21 17:36 <stamourv> Unfortunately, I don't have the liner
+                            notes in Boston. My CD collection is
+                            back home.
+2014-03-21 17:37 <stamourv> The liner notes for that compilation
+                            are very nice.
+2014-03-21 18:57 <jrslepak> from Olin meeting -- "With that limit,
+                            we have to cut out all the high-level
+                            bloviating and pontificating, which is
+                            sad because I am very good at
+                            bloviating."
+2014-03-21 19:06 <stamourv> tonyg: Transfer is done FYI.
+2014-03-21 19:06 <stamourv> jrslepak: Removing the bloviating and
+                            pontificating is a good idea. Removing
+                            the high-level, not so much.
+2014-03-21 19:49 *** dan_f JOIN
+2014-03-21 20:10 *** parcha QUIT Read error: Connection reset by
+                                 peer
+2014-03-21 20:12 *** parcha JOIN
+2014-03-21 21:00 *** ianjneu QUIT Ping timeout: 240 seconds
+2014-03-21 21:07 *** ianjneu JOIN
+2014-03-21 21:18 <asumu> tonyg: thanks for checking.
+!!! irc.freenode.net: deleted (closed)
+> 2014-03-22 13:30 *** bennn` JOIN
+2014-03-22 13:30 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-22 13:30 *** NAMES @ChanServ asumu bennn` dan_f danking
+                           fabianm gabot ianjneu jld jrslepak
+                           jschuster parcha pauls_ samth sstrickl
+                           stamourv stamourv` stchang_ tonyg tov
+                           turon wilbowma
+2014-03-22 13:36 <asumu> Yes, a cheap brunch where you order a set
+                         course and then have to leave after the
+                         first one.
+2014-03-22 13:36 <jrslepak> hehe
+2014-03-22 13:54 <sstrickl> I'm not sure whether that's unamerican
+                            because of the fact that you're not
+                            eating a ton or the most american
+                            because you're wasting most of it.
+2014-03-22 13:54 <sstrickl> :P
+2014-03-22 13:55 <asumu> sstrickl: it's American because it
+                         butchers a French word. :p
+2014-03-22 13:55 <sstrickl> you make a convincing point
+2014-03-22 14:04 <stamourv> As far as butchering goes, it's not
+                            that bad. Apart from the r, it's mostly
+                            recognizeable.
+2014-03-22 14:43 <jrslepak> "The machine starts at the beginning of
+                            the gospel"
+2014-03-22 15:14 <dan_f> asumu: 1+'foo' is a type error, but 'foo'
+                         + 1 is not
+2014-03-22 15:14 <asumu> dan_f: o_O?
+2014-03-22 15:14 <asumu> Are those two expressions semantically
+                         different in ST?
+2014-03-22 15:15 <dan_f> I don't think so(?)
+2014-03-22 15:15 <bennn`> https://www.destroyallsoftware.com/talks/wat
+2014-03-22 15:15 <dan_f> maybe it treats the second as calling a +
+                         method on 'foo', but I don't think that
+                         makes sense because it should be +: if it
+                         had an argument...
+2014-03-22 15:16 <stamourv> (add1 bennn`)
+2014-03-22 15:16 <asumu> Error: could not read
+2014-03-22 15:17 <dan_f> I'm trying to clean up the example for the
+                         email, but when playing around some more
+                         it seems like workspaces may not do any
+                         type checking at all
+2014-03-22 15:17 <stamourv> prlbot: (add1 bennn`)
+2014-03-22 15:17 <stamourv> prlbot: Where are you?
+2014-03-22 15:20 <bennn`> what's this?
+2014-03-22 15:21 <bennn`> My name's Ben, I'm at Cornell right now,
+                          I know @fabianm and I visited NU last
+                          Friday
+2014-03-22 15:21 <bennn`> hi @asumu
+2014-03-22 15:22 <asumu> bennn`: heyo.
+2014-03-22 15:22 <stamourv> Hey, good to see you again!
+2014-03-22 15:23 <stamourv> Re what's this: prlbot is the channel's
+                            bot. It's a clone of #racket's
+                            rudybot. It does Racket evaluation, and
+                            provides entertainment.
+2014-03-22 15:24 <bennn`> hmmmm
+2014-03-22 15:24 <bennn`> why were you trying to increment me?
+2014-03-22 15:24 <stamourv> You've seen the '<person>++' idiom when
+                            agreeing with someone, right?
+2014-03-22 15:24 <stamourv> That's just the Racket version.
+2014-03-22 15:25 <bennn`> ah! ok
+2014-03-22 15:27 <dan_f> asumu: I can't tell if I've actually found
+                         a bug or not, the two versions of the
+                         gradualtalk image have totally different
+                         behavior
+2014-03-22 15:27 <dan_f> In the basic version I get cast errors,
+                         which is probably to be expected
+2014-03-22 15:28 <dan_f> But in the version with more of the kernel
+                         classes typed (and the type system) I get
+                         runtime errors from + not reading a number
+2014-03-22 15:32 *** prlbot_ JOIN
+2014-03-22 15:32 *** prlbot JOIN
+2014-03-22 15:33 <asumu> prlbot: oh hey you're back.
+2014-03-22 15:33 *** prlbot__ JOIN
+2014-03-22 15:33 <prlbot> asumu: hey incidentally my new machine
+                          runs Quake 3 Arena quite nicely
+2014-03-22 15:33 <bennn`> stamourv:
+                          http://www.ccs.neu.edu/home/stamourv/
+2014-03-22 15:34 <bennn`> lol, nice to see you again too! I
+                          couldn't map id->face
+2014-03-22 15:34 <asumu> (on Debian, the default options for
+                         docker.io do not appear to actually work
+                         anymore)
+2014-03-22 15:36 <stamourv> bennn`: For you, logging in from
+                            cornell made it easy. ;)
+2014-03-22 15:40 <asumu> tonyg: is it accurate to say that
+                         Smalltalk uses keyword-based class
+                         constructors? (I guess they are actually
+                         called selectors in ST parlance?)
+2014-03-22 17:05 <ianjneu> *sigh* how do I make stuff span multiple
+                           columns in an align* environment again?
+                           Everything's coming up Milhouse.
+2014-03-22 17:05 <ianjneu> I mean tabular.
+2014-03-22 17:09 <stamourv> Dunno if you can do that in
+                            tabular. Maybe in booktabs?
+2014-03-22 18:13 *** lkuper JOIN
+2014-03-22 18:38 *** lkuper QUIT Quit: lkuper
+!!! irc.freenode.net: deleted (closed)
+> 2014-03-23 20:32 *** bennn JOIN
+2014-03-23 20:32 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-23 20:32 *** NAMES @ChanServ asumu bennn calvis dan_f
+                           danking fabianm gabot ianjneu jld
+                           jrslepak jschuster lkuper parcha pauls_
+                           prlbot prlbot_ prlbot__ samth sstrickl
+                           stamourv stamourv` stchang tonyg_ tov
+                           turon wilbowma
+2014-03-23 20:41 *** calvis QUIT Quit: calvis
+2014-03-23 23:37 *** lkuper QUIT Ping timeout: 264 seconds
+2014-03-23 23:41 <jrslepak> "When you fill in the todo's, it'll be
+                            a talk," he says
+2014-03-23 23:42 [jrslepak files that along with "it's an extended
+                           subset of the language"]
+2014-03-24 03:17 *** dan_f_ JOIN
+2014-03-24 03:19 *** dan_f QUIT Ping timeout: 268 seconds
+2014-03-24 03:19 *** dan_f_ NICK dan_f
+!!! irc.freenode.net: deleted (closed)
+> 2014-03-24 13:49 *** bennn JOIN
+2014-03-24 13:49 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-24 13:49 *** NAMES @ChanServ asumu bennn dan_f danking
+                           fabianm gabot ianjneu jld jrslepak
+                           jschuster parcha pauls_ prlbot prlbot_
+                           prlbot__ samth sstrickl stamourv
+                           stamourv` stchang tonyg tov turon
+                           wilbowma
+2014-03-24 13:49 -- [freenode-info] please register your
+                    nickname...don't forget to auto-identify!
+                    http://freenode.net/faq.shtml#nicksetup
+2014-03-24 13:53 *** bennn NICK bennnn`
+2014-03-24 13:53 <pauls_> http://crookedtimber.org/2012/02/16/so-what-would-your-plan-for-greece-be/
+2014-03-24 13:54 <pauls_> ...and its sequel:
+                          http://crookedtimber.org/2013/03/19/what-would-you-do-part-2-the-island-of-surpyc/
+2014-03-24 14:15 *** ianjneu QUIT Quit: leaving
+2014-03-24 14:16 <pauls_> Or the versions with actual links to
+                          click: https://www.jottit.com/eudet/
+2014-03-24 14:16 <pauls_> https://www.jottit.com/eudet/2
+!!! irc.freenode.net: connection broken by remote peer (closed)
+> 2014-03-24 16:40 *** bennn JOIN
+2014-03-24 16:40 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-24 16:40 *** NAMES @ChanServ asumu bennn calvis dan_f
+                           danking fabianm gabot ianjneu jld
+                           jrslepak jschuster parcha pauls_ prlbot
+                           prlbot_ prlbot__ samth sstrickl stamourv
+                           stamourv` stchang tonyg tov turon
+                           wilbowma
+2014-03-24 17:00 <asumu> http://www.nuprl.org/documents/Mendler/InductiveDefinition.html
+                         <-- says Nax P Mendler, but the document
+                         says Paul Francis Mendler. Weird.
+2014-03-24 17:01 <asumu> Oh Nax is his nickname.
+2014-03-24 17:45 <ianjneu> lololol
+                           https://twitter.com/kjhealy/status/441737392299327488/photo/1
+2014-03-24 17:46 *** calvis QUIT Quit: calvis
+2014-03-24 18:00 <bennn> I need to typeset some inference rules for
+                         a midterm. Should I use redex?
+2014-03-24 18:01 <tonyg> bennn: \usepackage{bussproofs}
+2014-03-24 18:01 <bennn> (or scribble, or stick with LaTeX)
+2014-03-24 18:01 <samth> bennn: i wouldn't use redex unless i
+                         already had a redex model
+2014-03-24 18:02 <bennn> the rules are extensions for imp
+2014-03-24 18:02 <bennn> I'm not sure what a redex model is, but I
+                         think I could make one for this case
+2014-03-24 18:03 <bennn> tonyg: any reason to use bussproofs over
+                         mathpartir or semantic?
+2014-03-24 18:04 <samth> bennn: if you're not sure what a redex
+                         model is, and you already know some latex
+                         system, then stick with what you know
+2014-03-24 18:04 <bennn> samth: the midterm question is easy. I
+                         wanted to learn something new.
+2014-03-24 18:04 <tonyg> bennn: ooo, i haven't evaluated those. i
+                         have only used bussproofs in the past
+2014-03-24 18:05 <samth> ah, then learn redex by all means :)
+2014-03-24 18:05 <tonyg> mathpartir looks nice
+2014-03-24 18:07 <bennn> samth: ok, cool
+2014-03-24 18:09 <samth> tonyg: mathpartir is what i usually use
+2014-03-24 18:11 <stamourv> Same here.
+2014-03-24 18:11 <stamourv> Says the guy who had to typeset about 5
+                            inference rules in the last 3 years.
+2014-03-24 18:15 <bennn> Nate Foster uses mathpartir
+2014-03-24 18:15 <samth> bennn: and nate is a smart guy
+2014-03-24 18:15 <bennn> he's my typesetting idol
+2014-03-24 18:17 <samth> bennn: that had to go on twitter
+2014-03-24 18:17 <bennn> ohboy
+2014-03-24 18:17 <samth> without attribution of course
+2014-03-24 18:18 <bennn> aww. That would've been an interesting
+                         conversation
+2014-03-24 18:52 *** sstrickl QUIT Quit: sstrickl
+2014-03-24 18:59 <jschuster> tonyg:
+                             http://www.lars.com/publications.html
+2014-03-24 18:59 <jschuster> (the top one is the paper Ian is
+                             mentioning to you)
+2014-03-24 19:47 /join #bropages
+2014-03-24 20:08 *** ianjneu QUIT Quit: leaving
+2014-03-24 20:29 *** sstrickl JOIN
+2014-03-24 20:29 *** sstrickl QUIT Changing host
+2014-03-24 20:29 *** sstrickl JOIN
+2014-03-24 20:57 *** ianjneu JOIN
+2014-03-24 20:59 <samth> stamourv: "Montréal Poutine retweeted you"
+!!! irc.freenode.net: deleted (closed)
+> 2014-03-24 22:58 *** bennn JOIN
+2014-03-24 22:58 *** TOPIC "Sometimes my sole purpose is to make
+                           other people look smarter when they go
+                           ask Matthew for help." - ryanc
+                           (stamourv!~user@racket/stamourv on Wed
+                           Jan 29 16:36:15 2014)
+2014-03-24 22:58 *** NAMES @ChanServ asumu bennn dan_f danking
+                           fabianm gabot ianjneu jld jrslepak
+                           jschuster parcha pauls_ prlbot prlbot_
+                           prlbot__ samth sstrickl stamourv
+                           stamourv` stchang tonyg tov turon
+                           wilbowma
+2014-03-24 22:58 /join #geogit
+2014-03-24 23:04 <asumu> https://medium.com/p/506a06ae35ea <-- neat
+                         blog post on social programming practices,
+                         but also applies to research.
+!!! irc.freenode.net: deleted (closed)
+> 

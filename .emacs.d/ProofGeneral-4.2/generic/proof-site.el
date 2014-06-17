@@ -37,9 +37,9 @@
     '(
       ;; Main instances of PG.
 
-      (isar "Isabelle" "thy")
-      (coq "Coq" "v" nil (".vo" ".glob"))
-      (phox "PhoX" "phx")
+      (isar "Isabelle" ".thy")
+      (coq "Coq" ".v" nil (".vo" ".glob"))
+      (phox "PhoX" ".phx")
 
       ;; Obscure instances or conflict with other Emacs modes.
 

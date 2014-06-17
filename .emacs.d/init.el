@@ -32,7 +32,8 @@
             (if (get sym 'disabled)
                 (put sym 'disabled nil))))
 
-;;; Turn on some crap
+;;; Font
+(set-face-attribute 'default nil :family "Courier")
 
 ;; associate xml, xsd, etc with nxml-mode
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
@@ -48,9 +49,7 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)(package-initialize)
 
-
-;; Install packages not needing configuration
-;; (with-package (impatient-mode lua-mode memoize rdp))
+(load "$HOME/.emacs.d/my-packages.el")
 
 ;; Load local "packages"
 (require 'imgur)
@@ -66,7 +65,7 @@
 (global-set-key "\C-x\C-k" 'compile)
 ;; (global-set-key [f2] (expose #'revert-buffer nil t))
 (global-set-key [f5] (lambda () (interactive) (mapatoms 'byte-compile)))
-(global-set-key (kbd "C-$") 'match-paren)
+(global-set-key (kbd "C-%") 'match-paren)
 (global-set-key (kbd "C-c d") 'insert-date)
 (global-set-key (kbd "C-c s") 'insert-signature)
 
@@ -76,27 +75,75 @@
 (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
 (add-to-list 'auto-mode-alist '("\\.mom$" . nroff-mode))
 
-
 ;;; Individual package configurations
 
-;; (require 'tex-site)
+(require 'anything)
+(require 'bitlbee)
+(require 'clojure-mode)
+(require 'coffee-mode)
+;(require 'elfeed)
+(require 'exec-path-from-shell)
+(require 'haskell-mode)
+(require 'python-mode)
 
-(load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
+;; Initializes tuareg-mode for OCaml
+(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+(autoload 'tuareg-imenu-set-imenu "tuareg-imenu"
+  "Configuration of imenu for tuareg" t)
+(setq auto-mode-alist
+      (append '(("\\.ml[ily]?$" . tuareg-mode)
+                ("\\.topml$" . tuareg-mode))
+              auto-mode-alist))
 
-(load-file "~/.emacs.d/exec-path-from-shell.el")
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+;; Custom OCaml hook. This variable sets additional minor modes to run
+;; when editing a .ml file.
+(add-hook 'tuareg-mode-hook
+          '(lambda ()
+             ;; pressing <RET> also indents
+             (local-set-key (kbd "RET") 'newline-and-indent)
 
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+             ;; Cleans us whitespace on save
+             (require 'fic-mode)
+             (require 'whitespace)
+             (make-local-variable 'before-save-hook)
+             (add-hook 'before-save-hook 'whitespace-cleanup)
+))
+
+
+
+;; Sets the color theme
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-tm)
 
-(add-to-list 'load-path "~/.emacs.d/tuareg-2.0.5")
-(autoload 'tuareg-mode "tuareg" "Major mode for OCaml" t)
-(add-to-list 'auto-mode-alist '("[.]ml[liy]?$" . tuareg-mode))
-;; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process" t)
-(setq tuareg-in-indent 0)
+;; Starts up AucTeX mode
+(require 'tex-site)
+;; Customize TeX variables
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(setq TeX-PDF-mode t)
+;; Customize TeX hook
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+(load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
+
+; racket
+(require 'scribble)
+(require 'quack)
+(require 'paredit)
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'geiser-mode-hook 'rainbow-delimiters-mode)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; android-mode
 (add-to-list 'load-path "~/.emacs.d/android-mode")
@@ -104,22 +151,6 @@
 
 (setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
 (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
-
-;; (defalias 'lisp-interaction-mode 'emacs-lisp-mode)
-;; (defun ielm-repl ()
-;;   (interactive)
-;;   (pop-to-buffer (get-buffer-create "*ielm*"))
-;;   (ielm))
-;; (defun ert-silently ()
-;;   (interactive)
-;;   (ert t))
-;; (define-key emacs-lisp-mode-map (kbd "C-x r") (expose #'ert t))
-;; (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm-repl)
-;; (define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
-;; (font-lock-add-keywords 'emacs-lisp-mode
-;;                         '(("(\\<\\(\\(?:ert-\\)?deftest\\)\\> +\\([^ ()]+\\)"
-;;                            (1 'font-lock-keyword-face)
-;;                            (2 'font-lock-function-name-face))))
 
 (with-package* time
   (setq display-time-default-load-average nil)
@@ -142,9 +173,6 @@
   (setq tramp-persistency-file-name
     (concat temporary-file-directory "tramp-" (user-login-name))))
 
-;; (with-package* whitespace-cleanup
-;;   (setq-default indent-tabs-mode nil))
-
 (with-package (simple utility)
   (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ()))))
 
@@ -155,11 +183,6 @@
   (winner-mode 1)
   (windmove-default-keybindings))
 
-;; 2013-05-24: Not installing magit today
-;; (with-package magit-autoloads
-;;   (setq vc-display-status nil)
-;;   (global-set-key "\C-xg" 'magit-status))
-
 (with-package markdown-mode-autoloads
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
@@ -169,19 +192,6 @@
 (with-package markdown-mode
   (define-key markdown-mode-map (kbd "<tab>") nil)) ; fix for YASnippet
 
-;; 2013-05-24: Not installing jekyll
-;; (add-to-list 'load-path "~/.emacs.d/jekyll.el")
-;; (setq jekyll-home "~/src/skeeto.github.com/")
-;; (when (file-exists-p jekyll-home)
-;;   (setq httpd-root (concat jekyll-home "_site"))
-;;   (ignore-errors
-;;     (httpd-start)
-;;     (jekyll/start)))
-;; (defservlet robots.txt text/plain ()
-;;   (insert "User-agent: *\nDisallow: /\n"))
-;; (defservlet uptime "text/plain" ()
-;;   (princ (emacs-uptime)))
-
 (with-package js2-mode
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "js2")))
@@ -190,12 +200,6 @@
                 '("$" "unsafeWindow" "localStorage" "jQuery"
                   "setTimeout" "setInterval" "location" "skewer"
                   "console" "phantom")))
-
-;; 2013-05-24: Inline web dev
-;; https://github.com/skeeto/skewer-mode
-;; (with-package (skewer-mode utility)
-;;   (define-key skewer-mode-map (kbd "C-c $")
-;;     (expose #'skewer-bower-load "jquery" "1.9.1")))
 
 (with-package* clojure-mode
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
@@ -211,21 +215,6 @@
   ;; Remove ":headless" to work around Leiningen bug
   (setq nrepl-server-command "lein repl"))
 
-;; (with-package inf-ruby
-;;   (defadvice inf-ruby-output-filter (after ruby-echo (output) activate)
-;;     (macrolet ((r (regex input) `(replace-regexp-in-string ,regex "" ,input)))
-;;       (let ((echo (r "[ \n\r\t]+$" (r inf-ruby-prompt-pattern output))))
-;;         (when (> (length echo) 0)
-;;           (message "%s" echo)))))
-;;   (defadvice ruby-send-last-sexp (after ruby-flash-last activate)
-;;     (flash-region (save-excursion (ruby-backward-sexp) (point)) (point)))
-;;   (defadvice ruby-send-definition (after ruby-flash-defun activate)
-;;     (save-excursion
-;;       (ruby-end-of-defun)
-;;       (let ((end (point)))
-;;         (ruby-beginning-of-defun)
-;;         (flash-region (point) end)))))
-
 (with-package 'ps-print
   (setq ps-print-header nil))
 
@@ -237,11 +226,6 @@
   (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
   (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
 
-;; chat client
-(with-package erc
-  (when (eq 0 (string-match "ben" (user-login-name)))
-    (setq erc-nick "ben")))
-
 (with-package 'cc-mode
   (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
   (add-to-list 'c-default-style '(c-mode . "k&r")))
@@ -250,14 +234,6 @@
   (defadvice ielm-eval-input (after ielm-paredit activate)
     "Begin each ielm prompt with a paredit pair.."
     (paredit-open-round)))
-
-;; 2013-05-24: I dont' think I want this. Reconsider if I ever start doing lisp-dev
-;; (with-package paredit-autoloads
-;;   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-;;   (add-hook 'lisp-mode-hook 'paredit-mode)
-;;   (add-hook 'scheme-mode-hook 'paredit-mode)
-;;   (add-hook 'ielm-mode-hook 'paredit-mode)
-;;   (add-hook 'clojure-mode-hook 'paredit-mode))
 
 ;; 2013-05-24: Source of the paren highlights
 (with-package* paren
@@ -274,32 +250,9 @@
   (add-hook 'emacs-lisp-mode-hook (bracket-face lisp-font-lock-keywords-2))
   (add-hook 'clojure-mode-hook (bracket-face clojure-font-lock-keywords)))
 
-;; (add-to-list 'load-path "~/.emacs.d/ido-ubiquitous/")
-;; (require 'ido-ubiquitous)
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-show-dot-for-dired t) ; Old habits die hard! (???)
-;; (setq ido-everywhere t)
-;; (ido-mode 1)
-;; (ido-ubiquitous-mode)
-;; (setq ido-ubiquitous-enable-compatibility nil)
-
 (with-package* smex
   (smex-initialize)
   (global-set-key (kbd "M-x") 'smex))
-
-;; ;; (with-package* custom
-;; ;;   (load-theme 'wombat t)
-;; ;;   (add-hook 'after-make-frame-functions
-;; ;;             (lambda (frame)
-;; ;;               (let ((themes custom-enabled-themes))
-;; ;;                 (mapc 'disable-theme themes)
-;; ;;                 (mapc 'enable-theme (reverse themes)))))
-;; ;;   ;; Fix broken faces between Wombat and Magit
-;; ;;   (custom-set-faces
-;; ;;    '(diff-added           ((t :foreground "green")))
-;; ;;    '(diff-removed         ((t :foreground "red")))
-;; ;;    '(highlight            ((t (:background "black"))))
-;; ;;    '(magit-item-highlight ((t :background "black")))))
 
 (with-package* javadoc-lookup
   (global-set-key (kbd "C-h j") 'javadoc-lookup)
@@ -336,17 +289,6 @@
   (add-hook 'python-mode-hook 'lambda-mode)
   (add-hook 'scheme-mode-hook 'lambda-mode))
 
-;; (with-package multiple-cursors-autoloads
-;;   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;;   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;;   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
-
-;; (add-to-list 'load-path "~/.emacs.d/graphiz-dot.el")
-;; (require 'graphiz-dot)
-;; (with-package graphiz-dot
-;; (setq graphviz-dot-indent-width 2)
-;; (setq graphviz-dot-auto-indent-on-semi nil))
-
 (add-to-list 'load-path "~/.emacs.d/uuid-simple.el")
 (require 'uuid-simple)
 (global-set-key "\C-x!" 'uuid-insert)
@@ -379,13 +321,18 @@
 (require 'jinja2-mode)
 
 (with-package* fic-mode
-  (add-hook 'c-mode-hook 'turn-on-fic-mode)
-  (add-hook 'coffee-mode-hook 'turn-on-fic-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-fic-mode)
-  (add-hook 'java-mode-hook 'turn-on-fic-mode)
-  (add-hook 'latex-mode-hook 'turn-on-fic-mode)
-  (add-hook 'python-mode-hook 'turn-on-fic-mode)
-  (add-hook 'tuareg-mode-hook 'turn-on-fic-mode))
+  (add-hook 'c-mode-hook 'fic-mode)
+  (add-hook 'coffee-mode-hook 'fic-mode)
+  (add-hook 'geiser-mode-hook 'fic-mode)
+  (add-hook 'html-mode-hook 'fic-mode)
+  (add-hook 'java-mode-hook 'fic-mode)
+  (add-hook 'latex-mode-hook 'fic-mode)
+  (add-hook 'python-mode-hook 'fic-mode)
+  (add-hook 'scheme-mode-hook 'fic-mode)
+  (add-hook 'tuareg-mode-hook 'fic-mode))
+
+(add-to-list 'load-path "~/.emacs.d/writegood-mode.el")
+(require 'writegood-mode)
 
 ;;; ignoring you now
 (add-to-list 'completion-ignored-extensions ".hi")
@@ -402,7 +349,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
- '(send-mail-function (quote sendmail-send-it))
+ ;; '(send-mail-function ('sendmail-send-it))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
