@@ -15,17 +15,12 @@ CAML_LD_LIBRARY_PATH="/Users/ben/.opam/system/lib/stublibs:/usr/local/lib/ocaml/
 PERL5LIB="/Users/ben/.opam/system/lib/perl5"; export PERL5LIB;
 OCAML_TOPLEVEL_PATH="/Users/ben/.opam/system/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
 MANPATH=":/Users/ben/.opam/system/man"; export MANPATH;
-PATH="/Users/ben/.opam/system/bin:/Users/ben/.rvm/gems/ruby-1.9.2-p320/bin:/Users/ben/.rvm/gems/ruby-1.9.2-p320@global/bin:/Users/ben/.rvm/rubies/ruby-1.9.2-p320/bin:/Users/ben/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/mysql-5.6.5-m8-osx10.6-x86_64/bin:/usr/local/Cellar/libxml2/2.7.8/lib/python2.7/site-packages:/usr/local/lib/python3.3/site-packages:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin/pdb:/opt/X11/bin:/usr/X11/bin:/usr/local/git/bin:/usr/texbin:/Users/ben/code/3110/cs3110/support/work:/opt/local/bin:/opt/local/sbin:/Volumes/heap/ben/ross/compilers/polyglot-2.5.3-src/bin:/Users/ben/.rvm/bin:/Users/ben/code/andriod-sdk-macosx/tools"; export PATH;
+PATH="/usr/local/opt/ruby/bin:/Users/ben/.opam/system/bin:/Users/ben/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/mysql-5.6.5-m8-osx10.6-x86_64/bin:/usr/local/Cellar/libxml2/2.7.8/lib/python2.7/site-packages:/usr/local/lib/python3.3/site-packages:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin/pdb:/usr/local/git/bin:/usr/texbin:/opt/local/bin:/opt/local/sbin:/Users/ben/code/andriod-sdk-macosx/tools:/Applications/PostGIS.app/Contents/MacOS/bin:/Users/ben/code/geogit/GeoGit/src/cli-app/target/geogit/bin"; export PATH;
+export PATH=:$PATH
 
-# postgis
-export PATH=$PATH:/Applications/PostGIS.app/Contents/MacOS/bin
-# export CLASSPATH=$CLASSPATH:/usr/local/lib/antlr-4.1-complete.jar
 export TEXMFDIST=/usr/local/texlive/2011/texmf-dist
-# geogit
-export PATH=$PATH:/Users/ben/code/geogit/GeoGit/src/cli-app/target/geogit/bin
 # android
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-export PATH=$PATH:~/code/andriod-sdk-macosx/tools
 # Tikz.
 export PGFMAN=/usr/local/texlive/2011/texmf-dist/doc/generic/pgf/pgfmanual.pdf
 # java_home. Alternately, for a past version, try: 
@@ -35,13 +30,19 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/Cellar/libxml2/2.7.8/lib/python2.7/site
 # python3.3
 # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.3/site-packages
 export RENTENNA_HOME=/Users/ben/rentenna/rentenna
-#idk what this is for
-#export NODE_PATH=/usr/local/lib/node_modules
 bindkey -e
 #http://my.opera.com/blackbelt_jones/blog/2007/06/05/zsh-prompt-configuration-issue-solved
 export EDITOR="vim"
+export fabianvm=128.84.216.184
 # allow node to write many files
 ulimit -n 1024
+
+# reverse search
+source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+zmodload zsh/terminfo
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 #http://www.techrepublic.com/article/learn-the-power-features-of-zsh/6138386
 setopt autocd
