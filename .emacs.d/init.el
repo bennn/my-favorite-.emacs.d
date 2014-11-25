@@ -1,6 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(setenv "PATH" 
+        (concat "/Users/ben/.opam/4.02.0/bin/"
+        (concat "/Users/ben/Library/Haskell/bin" 
+        (concat "/usr/local/bin:" 
+                (getenv "PATH")))))
 
 ;;; Turn off the annoying crap immediately
 (column-number-mode 1)
@@ -33,13 +37,13 @@
                 (put sym 'disabled nil))))
 
 ;;; Font
-(set-face-attribute 'default nil :family "Courier")
+(set-face-attribute 'default nil :family "Courier New")
 
 ;; associate xml, xsd, etc with nxml-mode
 (add-to-list 'auto-mode-alist (cons (concat "\\." (regexp-opt '("xml" "xsd" "rng" "xslt" "xsl") t) "\\'") 'nxml-mode))
 (setq nxml-slash-auto-complete-flag t)
 
-;;; Packages
+;; Packages
 
 (require 'tabulated-list)
 (require 'package)
@@ -86,6 +90,11 @@
 (require 'haskell-mode)
 (require 'python-mode)
 
+;; Sets the color theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-tm)
+
 ;; Initializes tuareg-mode for OCaml
 (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
 (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
@@ -110,28 +119,24 @@
              (add-hook 'before-save-hook 'whitespace-cleanup)
 ))
 
-
-
-;; Sets the color theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-tm)
-
-;; Starts up AucTeX mode
-(require 'tex-site)
-;; Customize TeX variables
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-(setq TeX-PDF-mode t)
-;; Customize TeX hook
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
-
 (load-file "~/.emacs.d/ProofGeneral-4.2/generic/proof-site.el")
+(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+
+;; ;; Starts up AucTeX mode
+;; (require 'tex-site)
+;; ;; Customize TeX variables
+;; (setq TeX-auto-save t)
+;; (setq TeX-parse-self t)
+;; (setq-default TeX-master nil)
+;; (setq TeX-PDF-mode t)
+;; ;; Customize TeX hook
+;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; (setq reftex-plug-into-AUCTeX t)
+
 
 ; racket
 (require 'scribble)
@@ -145,12 +150,9 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; android-mode
-(add-to-list 'load-path "~/.emacs.d/android-mode")
-(require 'android-mode)
-
-(setq auto-mode-alist (cons '("\.v$" . coq-mode) auto-mode-alist))
-(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+;; ;; android-mode
+;; (add-to-list 'load-path "~/.emacs.d/android-mode")
+;; (require 'android-mode)
 
 (with-package* time
   (setq display-time-default-load-average nil)
@@ -158,20 +160,21 @@
   (setq display-time-24hr-format t)
   (display-time-mode t))
 
-;; http://www.emacswiki.org/emacs/ComintMode
-(with-package comint
-  (message "comint loaded: %s" (featurep 'comint))
-  (setq comint-prompt-read-only t
-        comint-history-isearch t)
-  (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
-  (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
-  (define-key comint-mode-map (kbd "C-n") 'comint-next-input)
-  (define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
-  (define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward))
+;; ;; http://www.emacswiki.org/emacs/ComintMode
+;; (with-package comint
+;;   (message "comint loaded: %s" (featurep 'comint))
+;;   (setq comint-prompt-read-only t
+;;         comint-history-isearch t)
+;;   (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
+;;   (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
+;;   (define-key comint-mode-map (kbd "C-n") 'comint-next-input)
+;;   (define-key comint-mode-map (kbd "C-p") 'comint-previous-input)
+;;   (define-key comint-mode-map (kbd "C-r") 'comint-history-isearch-backward))
 
-(with-package tramp
-  (setq tramp-persistency-file-name
-    (concat temporary-file-directory "tramp-" (user-login-name))))
+;; ;; http://www.emacswiki.org/TrampMode
+;; (with-package tramp
+;;   (setq tramp-persistency-file-name
+;;     (concat temporary-file-directory "tramp-" (user-login-name))))
 
 (with-package (simple utility)
   (define-key visual-line-mode-map (kbd "M-q") (expose (lambda ()))))
@@ -188,7 +191,6 @@
   (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("pentadactyl.txt$" . markdown-mode))
   (setq sentence-end-double-space nil))
-
 (with-package markdown-mode
   (define-key markdown-mode-map (kbd "<tab>") nil)) ; fix for YASnippet
 
@@ -204,45 +206,44 @@
 (with-package* clojure-mode
   (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode)))
 
-(with-package nrepl
-  (defadvice nrepl-popup-buffer-display (after nrepl-focus-errors activate)
-    "Focus the error buffer after errors, like Emacs normally does."
-    (select-window (get-buffer-window nrepl-error-buffer)))
-  (defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
-    (flash-region (save-excursion (backward-sexp) (point)) (point)))
-  (defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
-    (apply #'flash-region (nrepl-region-for-expression-at-point)))
-  ;; Remove ":headless" to work around Leiningen bug
-  (setq nrepl-server-command "lein repl"))
+;; (with-package nrepl
+;;   (defadvice nrepl-popup-buffer-display (after nrepl-focus-errors activate)
+;;     "Focus the error buffer after errors, like Emacs normally does."
+;;     (select-window (get-buffer-window nrepl-error-buffer)))
+;;   (defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
+;;     (flash-region (save-excursion (backward-sexp) (point)) (point)))
+;;   (defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
+;;     (apply #'flash-region (nrepl-region-for-expression-at-point)))
+;;   ;; Remove ":headless" to work around Leiningen bug
+;;   (setq nrepl-server-command "lein repl"))
 
-(with-package 'ps-print
-  (setq ps-print-header nil))
+;; (with-package 'ps-print
+;;   (setq ps-print-header nil))
 
-(with-package glsl-mode-autoloads
-  (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.fs$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
-  (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
+;; (with-package glsl-mode-autoloads
+;;   (add-to-list 'auto-mode-alist '("\\.glsl$" . glsl-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.vert$" . glsl-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.frag$" . glsl-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.fs$" . glsl-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.vs$" . glsl-mode))
+;;   (add-to-list 'auto-mode-alist '("\\.cl$" . c-mode))) ; OpenCL
 
-(with-package 'cc-mode
-  (setcdr (assq 'c-basic-offset (cdr (assoc "k&r" c-style-alist))) 4)
-  (add-to-list 'c-default-style '(c-mode . "k&r")))
+(add-to-list 'load-path "~/.emacs.d/cc-mode/")
+(require 'cc-mode)
 
 (with-package ielm
   (defadvice ielm-eval-input (after ielm-paredit activate)
     "Begin each ielm prompt with a paredit pair.."
     (paredit-open-round)))
 
-;; 2013-05-24: Source of the paren highlights
+;; ;; 2013-05-24: Source of the paren highlights
 (with-package* paren
   (show-paren-mode))
 
-(with-package* parenface
-  (set-face-foreground 'paren-face "Gray30")
-  (add-hook 'clojure-mode-hook
-            (paren-face-add-support clojure-font-lock-keywords)))
+;; (with-package* parenface
+;;   (set-face-foreground 'paren-face "Gray30")
+;;   (add-hook 'clojure-mode-hook
+;;             (paren-face-add-support clojure-font-lock-keywords)))
 
 (with-package* bracket-face
   (add-hook 'scheme-mode-hook (bracket-face scheme-font-lock-keywords-2))
@@ -273,9 +274,9 @@
    [org.apache.lucene lucene-core "3.3.0"])
 )
 
-(with-package browse-url
-  (when (executable-find "chromium-browser")
-    (setq browse-url-browser-function 'browse-url-chromium)))
+;; (with-package browse-url
+;;   (when (executable-find "chromium-browser")
+;;     (setq browse-url-browser-function 'browse-url-chromium)))
 
 (with-package yasnippet
   (yas-global-mode 1)
@@ -294,31 +295,31 @@
 (global-set-key "\C-x!" 'uuid-insert)
 (random (make-uuid))
 
-(add-to-list 'load-path "~/.emacs.d/compile-bind.el")
-(require 'compile-bind)
-(compile-bind* (current-global-map)
-               'make ("C-x c" ""
-                      "C-x r" 'run
-                      "C-x C" 'clean))
+;; (add-to-list 'load-path "~/.emacs.d/compile-bind.el")
+;; (require 'compile-bind)
+;; (compile-bind* (current-global-map)
+;;                'make ("C-x c" ""
+;;                       "C-x r" 'run
+;;                       "C-x C" 'clean))
 
-(setq load-path (cons "/usr/local/lib/kics2-0.2.4/tools/emacs/" load-path))
-(setq auto-mode-alist
-      (append auto-mode-alist
-              '(("\\.curry$"  . curry-mode)
-                ("\\.lcurry$"  . literate-curry-mode))))
-(autoload 'curry-mode "curry-mode"
-         "Major mode for editing Curry programs." t)
-(autoload 'literate-curry-mode "curry-mode"
-         "Major mode for editing literate Curry scripts." t)
-(add-hook 'curry-mode-hook 'turn-on-curry-font-lock)
-(add-hook 'curry-mode-hook 'turn-on-curry-decl-scan)
-(add-hook 'curry-mode-hook 'turn-on-curry-pakcs)
+;; (setq load-path (cons "/usr/local/lib/kics2-0.2.4/tools/emacs/" load-path))
+;; (setq auto-mode-alist
+;;       (append auto-mode-alist
+;;               '(("\\.curry$"  . curry-mode)
+;;                 ("\\.lcurry$"  . literate-curry-mode))))
+;; (autoload 'curry-mode "curry-mode"
+;;          "Major mode for editing Curry programs." t)
+;; (autoload 'literate-curry-mode "curry-mode"
+;;          "Major mode for editing literate Curry scripts." t)
+;; (add-hook 'curry-mode-hook 'turn-on-curry-font-lock)
+;; (add-hook 'curry-mode-hook 'turn-on-curry-decl-scan)
+;; (add-hook 'curry-mode-hook 'turn-on-curry-pakcs)
 
 (with-package* coffee-mode
   (add-to-list 'auto-mode-alist '("[.]cunit$" . coffee-mode))
   (add-to-list 'auto-mode-alist '("[.]icoffee$" . coffee-mode)))
 
-(require 'jinja2-mode)
+;; (require 'jinja2-mode)
 
 (with-package* fic-mode
   (add-hook 'c-mode-hook 'fic-mode)
@@ -334,6 +335,26 @@
 (add-to-list 'load-path "~/.emacs.d/writegood-mode.el")
 (require 'writegood-mode)
 
+;; ;;; agda mode
+;; ;; (load-file "/Users/ben/Library/Haskell/ghc-7.6.3/lib/Agda-2.4.0.2/share/emacs-mode/agda2.el")
+;; ;; ;; (load-file (let ((coding-system-for-read 'utf-8))
+;; ;; ;;                 (shell-command-to-string "agda-mode locate")))
+;; ;; (setq agda2-include-dirs
+;; ;;       (list "." "/Users/ben/code/agda/agda-stdlib-0.8/src" ))
+;; ;; "/Users/ben/code/agda/oplss-agda"
+
+;; (load-file (let ((coding-system-for-read 'utf-8))
+;;                 (shell-command-to-string "agda-mode locate")))
+;; (add-hook 'agda2-mode-hook
+;;           (lambda ()
+;;             (customize-set-variable 'agda2-highlight-face-groups
+;;                                     'default-faces)))
+;; (require 'agda2)
+
+;;; twelf
+(setq twelf-root "/Applications/Twelf/")
+(load (concat twelf-root "emacs/twelf-init.el"))
+
 ;;; ignoring you now
 (add-to-list 'completion-ignored-extensions ".hi")
 (add-to-list 'completion-ignored-extensions ".cmi")
@@ -344,12 +365,8 @@
 (provide 'init) ; make (require 'init) happy
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-time-mode t)
- ;; '(send-mail-function ('sendmail-send-it))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces

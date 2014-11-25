@@ -46,7 +46,6 @@
   '(anything
     auto-complete
     auto-complete-auctex
-    auctex
     bitlbee
     clojure-mode
     coffee-mode
